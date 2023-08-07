@@ -20,8 +20,6 @@ yarn-error.log
 composer.json
 composer.lock
 .editorconfig
-.gitattributes
-.gitignore
 artisan 
 package.json
 phpunit.xml
