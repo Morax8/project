@@ -5,9 +5,9 @@
 /public/storage
 /storage/*.key
 /vendor
-.env
 .env.backup
 .env.production
+.env.example
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -17,3 +17,12 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
+composer.json
+composer.lock
+.editorconfig
+.gitattributes
+.gitignore
+artisan 
+package.json
+phpunit.xml
+vite.config.js
