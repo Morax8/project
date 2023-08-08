@@ -4,88 +4,90 @@ namespace App\Http\Controllers;
 
 use App\Models\gallery;
 use Illuminate\Support\Str;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoregalleryRequest;
-use App\Http\Requests\UpdategalleryRequest;
+use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function cmsIndex($type)
     {
-        $gallery = gallery::all();
+        $gallery = Gallery::where('type', $type)->get();
 
-        return view('admin.gallery.indexGall', compact('gallery'));
+        return view('admin.gallery.cmsIndex', [
+            'gallery' => $gallery,
+            'galleryType' => $type,
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    public function edit($type, $id)
+    {
+        // Load the appropriate gallery item based on type and id
+        $item = Gallery::where('type', $type)->findOrFail($id);
+
+        // Pass the item to the view along with the type
+        return view('admin.gallery.edit', compact('item', 'type'));
+    }
     public function create()
     {
-        return view('admin.gallery.createGall');
+        return view('admin.gallery.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StoregalleryRequest $request, gallery $gallery)
+    public function store(Request $request, gallery $gallery)
     {
         $request->validate([
             'nama' => 'required|max:255',
             'text' => 'required|max:255',
             'type' => 'required|max:255',
-            'gambar' => 'required|image',
+            'gambar' => 'required',
         ]);
+
         $input['nama'] = $request->input('nama');
+        $input['type'] = $request->input('type');
+        $input['text'] = $request->input('text');
+        $input['gambar'] = $request->input('gambar');
+
+
+        // Get the 'type' parameter from the route
+        $type = $request->route('type');
+
 
         $gallery->active = $request->has('active');
 
-        if ($image = $request->file('gambar')) {
+        if ($gambar = $request->file('gambar')) {
             $desiredFileName = $request->input('nama');
-
-            $imageName = $desiredFileName . '.' . $image->getClientOriginalExtension();
-
+            $gambarName = $desiredFileName . '.' . $gambar->getClientOriginalExtension();
             $destinationPath = public_path('images');
-            $image->move($destinationPath, $imageName);
-
-            $input['gambar'] = $imageName;
+            $gambar->move($destinationPath, $gambarName);
+            $input['gambar'] = $gambarName;
         }
 
         gallery::create($input);
 
-        return redirect('/gallery')->with('success', 'Data berhasil ditambahkan');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(gallery $gallery)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(gallery $gallery)
-    {
-        return view('admin.gallery.editGall', compact('gallery'));
+        $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+        return redirect($cmsIndexUrl);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdategalleryRequest $request, gallery $gallery, $type, $id)
+    public function update(Request $request, gallery $gallery, $type, $id)
     {
-        $request->validate([
-            'nama' => 'required|max:255',
-            'text' => 'required',
-            'gambar' => 'required|image',
+        try {
+            $request->validate([
+                'nama' => 'required|max:255',
+                'type' => 'required|max:255',
+                'text' => 'required',
+                'gambar' => 'required|image',
 
-        ]);
+            ]);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            // Log validation errors
+            Log::error('Validation errors:', $e->errors());
+            throw $e;
+        }
+        //dd($request->all());
 
         // Find the content by its ID
         $content = gallery::find($id);
@@ -93,21 +95,19 @@ class GalleryController extends Controller
             return redirect('/{$type}cms')->with('error', 'Content not found.');
         }
 
-        if ($request->hasFile('image')) {
-            $image = $request->file('image');
-
-            // Generate a unique but identical name for the image
-            $imageName = $gallery->nama . '-' . Str::random(1) . '.' . $image->getClientOriginalExtension();
+        if ($request->hasFile('gambar')) {
+            $image = $request->file('gambar');
+            $desiredFileName = $request->input('nama');
+            $imageName = $desiredFileName . '-' . Str::random(1) . '.' . $image->getClientOriginalExtension();
 
             $destinationPath = public_path('images');
             $image->move($destinationPath, $imageName);
 
-            if ($gallery->image && file_exists(public_path('images/' . $gallery->image))) {
-                unlink(public_path('images/' . $gallery->image));
+            if ($content->gambar && file_exists(public_path('images/' . $content->gambar))) {
+                unlink(public_path('images/' . $content->gambar));
             }
-            $gallery->image = $imageName;
+            $content->gambar = $imageName;
         }
-
         // Update the content based on the type
         if ($type === 'tsm' || $type === 'tip' || $type === 'tp' || $type === 'tm') {
             $content->update([
@@ -115,10 +115,13 @@ class GalleryController extends Controller
                 'gambar' => $request->gambar,
                 'text' => $request->text,
             ]);
-            return redirect("/{$type}cms");
+            $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+
+            return redirect($cmsIndexUrl);
         }
 
-        return redirect('/')->with('error', 'Invalid content type.');
+
+        return redirect('/dashboard')->with('error', 'Invalid content type.');
     }
 
     /**
