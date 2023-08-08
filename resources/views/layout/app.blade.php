@@ -167,7 +167,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li
-                            class="nav-item has-treeview {{ Request::is('tipgal', 'tmgal', 'tsmgal', 'tpgal') ? 'menu-open' : '' }}">
+                            class="nav-item has-treeview {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => ['tip', 'tm', 'tsm', 'tp']]) ? 'menu-open' : '' }} --}} menu-open">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-images"></i>
                                 <p>
@@ -177,25 +177,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="/tipgal" class="nav-link {{ Request::is('tipgal') ? 'active' : '' }}">
+                                    <a href="{{ route('gallery.cmsIndex', ['type' => 'tip']) }}"
+                                        class="nav-link {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => 'tip']) ? 'active' : '' }} --}}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TIP</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/tmgal" class="nav-link {{ Request::is('tmgal') ? 'active' : '' }}">
+                                    <a href="{{ route('gallery.cmsIndex', ['type' => 'tm']) }}"
+                                        class="nav-link {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => 'tm']) ? 'active' : '' }} --}}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TM</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/tsmgal" class="nav-link {{ Request::is('tsmgal') ? 'active' : '' }}">
+                                    <a href="{{ route('gallery.cmsIndex', ['type' => 'tsm']) }}"
+                                        class="nav-link {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => 'tsm']) ? 'active' : '' }} --}}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TSM</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/tpgal" class="nav-link {{ Request::is('tpgal') ? 'active' : '' }}">
+                                    <a href="{{ route('gallery.cmsIndex', ['type' => 'tp']) }}"
+                                        class="nav-link {{--{{ request()->routeIs('gallery.cmsIndex', ['type' => 'tp']) ? 'active' : '' }} --}}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>TP</p>
                                     </a>
