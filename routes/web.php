@@ -121,14 +121,12 @@ Route::match(['PUT', 'PATCH'], '/profile/{type}/update/{id}', 'App\Http\Controll
 
 //Gallery CMS
 //index for each type
-Route::get('/tsmgal', [GalleryController::class, 'indextsm'])->name('galleryTsm.index');
-Route::get('/tipgal', [GalleryController::class, 'indexTip'])->name('galleryTip.index');
-Route::get('/tpgal', [GalleryController::class, 'indexTp'])->name('galleryTp.index');
-Route::get('/tmgal', [GalleryController::class, 'indexTm'])->name('galleryTm.index');
-//each edit
-Route::get('/tsm/editGall/{id}', [GalleryController::class, 'editTsm'])->name('galleryTsm.edit');
-Route::get('/tip/editGall/{id}', [GalleryController::class, 'editTip'])->name('galleryTip.edit');
-Route::get('/tp/editGall/{id}', [GalleryController::class, 'editTp'])->name('galleryTp.edit');
-Route::get('/tm/editGall/{id}', [GalleryController::class, 'editTm'])->name('galleryTm.edit');
+Route::get('/gallery/type/{type}', [GalleryController::class, 'cmsIndex'])->name('gallery.cmsIndex');
+//edit
+Route::get('/gallery/{type}/edit/{id}', 'App\Http\Controllers\GalleryController@edit')->name('gallery.edit');
+//create
+Route::get('/gallery/create', [GalleryController::class, 'create'])->name('gallery.create');
 //update
 Route::match(['PUT', 'PATCH'], '/gallery/{type}/update/{id}', 'App\Http\Controllers\GalleryController@update')->name('gallery.update');
+//store
+Route::post('/gallery/store', 'App\Http\Controllers\GalleryController@store')->name('gallery.store');
