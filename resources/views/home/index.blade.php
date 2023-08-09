@@ -127,9 +127,10 @@
         <div class="row">
             <div class="isotopeContainer">
                 <div class="col-md-4 isotopeSelector tm">
+                    @foreach ($gallerytm as $item)
                     <article class="">
                         <figure>
-                            <img src="http://placehold.it/625x450" alt="" />
+                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
                             <div class="overlay-background">
                                 <div class="inner"></div>
                             </div>
@@ -137,17 +138,15 @@
                                 <div class="inner-overlay">
                                     <div class="row margin-0 project-content">
                                         <div class="col-md-12 info-head">
-                                            <h3>Project Title</h3>
+                                            <h3>{{ $item->nama }}</h3>
+                                            <h4>{{ $item->type }}</h4>
                                         </div>
                                         <div class="col-md-12 info">
                                             <p>
-                                                Lorem ipsum dolor sit amet, consetetur sadipscing
-                                                elitr, sed diam nonumy eirmod tempor invidunt ut
-                                                labore et dolore...
-                                            </p>
-                                            <p>
+                                                {!! $item->text !!}
+                                                <!-- Use {!! !!} to render HTML content -->
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="http://placehold.it/625x450"><i
+                                                    href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
                                                 <a title="Project Link" href="#"><i
                                                         class="fa fa-link fa-border fa-2x"></i></a>
@@ -158,12 +157,15 @@
                             </div>
                         </figure>
                     </article>
+                    @endforeach
                 </div>
+
 
                 <div class="col-md-4 isotopeSelector tip">
+                    @foreach ($gallerytip as $item)
                     <article class="">
                         <figure>
-                            <img src="http://placehold.it/625x450" alt="" />
+                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
                             <div class="overlay-background">
                                 <div class="inner"></div>
                             </div>
@@ -171,20 +173,16 @@
                                 <div class="inner-overlay">
                                     <div class="row margin-0 project-content">
                                         <div class="col-md-12 info-head">
-                                            <h3>Project Title</h3>
-                                            <h4>Category</h4>
+                                            <h3>{{ $item->nama }}</h3>
+                                            <h4>{{ $item->type }}</h4>
                                         </div>
                                         <div class="col-md-12 info">
                                             <p>
-                                                Lorem ipsum dolor sit amet, consetetur sadipscing
-                                                elitr, sed diam nonumy eirmod tempor invidunt ut
-                                                labore et dolore...
-                                            </p>
-                                            <p>
+                                                {!! $item->text !!}
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="http://placehold.it/625x450"><i
+                                                    href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="portfolio-item.html"><i
+                                                <a title="Project Link" href="#"><i
                                                         class="fa fa-link fa-border fa-2x"></i></a>
                                             </p>
                                         </div>
@@ -193,12 +191,15 @@
                             </div>
                         </figure>
                     </article>
+                    @endforeach
                 </div>
+
 
                 <div class="col-md-4 isotopeSelector tp">
+                    @foreach ($gallerytp as $item)
                     <article class="">
                         <figure>
-                            <img src="http://placehold.it/625x450" alt="" />
+                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
                             <div class="overlay-background">
                                 <div class="inner"></div>
                             </div>
@@ -206,20 +207,17 @@
                                 <div class="inner-overlay">
                                     <div class="row margin-0 project-content">
                                         <div class="col-md-12 info-head">
-                                            <h3>Project Title</h3>
-                                            <h4>Category</h4>
+                                            <h3>{{ $item->nama }}</h3>
+                                            <h4>{{ $item->type }}</h4>
                                         </div>
                                         <div class="col-md-12 info">
                                             <p>
-                                                Lorem ipsum dolor sit amet, consetetur sadipscing
-                                                elitr, sed diam nonumy eirmod tempor invidunt ut
-                                                labore et dolore...
-                                            </p>
-                                            <p>
+                                                {!! $item->text !!}
+                                                <!-- Use {!! !!} to render HTML content -->
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="http://placehold.it/625x450"><i
+                                                    href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="portfolio-item.html"><i
+                                                <a title="Project Link" href="#"><i
                                                         class="fa fa-link fa-border fa-2x"></i></a>
                                             </p>
                                         </div>
@@ -228,12 +226,15 @@
                             </div>
                         </figure>
                     </article>
+                    @endforeach
                 </div>
 
+
                 <div class="col-md-4 isotopeSelector tsm">
+                    @foreach ($gallerytsm as $item)
                     <article class="">
                         <figure>
-                            <img src="http://placehold.it/625x450" alt="" />
+                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
                             <div class="overlay-background">
                                 <div class="inner"></div>
                             </div>
@@ -241,20 +242,17 @@
                                 <div class="inner-overlay">
                                     <div class="row margin-0 project-content">
                                         <div class="col-md-12 info-head">
-                                            <h3>Project Title</h3>
-                                            <h4>Category</h4>
+                                            <h3>{{ $item->nama }}</h3>
+                                            <h4>{{ $item->type }}</h4>
                                         </div>
                                         <div class="col-md-12 info">
                                             <p>
-                                                Lorem ipsum dolor sit amet, consetetur sadipscing
-                                                elitr, sed diam nonumy eirmod tempor invidunt ut
-                                                labore et dolore...
-                                            </p>
-                                            <p>
+                                                {!! $item->text !!}
+                                                <!-- Use {!! !!} to render HTML content -->
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="http://placehold.it/625x450"><i
+                                                    href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="portfolio-item.html"><i
+                                                <a title="Project Link" href="#"><i
                                                         class="fa fa-link fa-border fa-2x"></i></a>
                                             </p>
                                         </div>
@@ -263,7 +261,9 @@
                             </div>
                         </figure>
                     </article>
+                    @endforeach
                 </div>
+
             </div>
         </div>
     </div>

@@ -32,6 +32,7 @@
                 <div class="form-group">
                     <label for="type">Type</label>
                     <select name="type" id="type" class="form-control">
+                        <option value="" disabled selected>Please choose a type</option>
                         <option value="tip">TIP</option>
                         <option value="tm">TM</option>
                         <option value="tsm">TSM</option>

@@ -36,12 +36,13 @@
                         <a href="{{ route('gallery.edit', ['type' => $item->type, 'id' => $item->id]) }}"
                             class="btn btn-warning">Edit</a>
                         <p></p>
-                        {{-- <form action="{{ route('gallery.destroy', $item->id) }}" method="POST">
+                        <form action="{{ route('gallery.destroy', ['type' => $item->type, 'id' => $item->id]) }}"
+                            method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"
                                 onclick="return confirm('Yakin ingin menghapus data?')">Delete</button>
-                        </form> --}}
+                        </form>
                     </td>
                 </tr>
                 @endforeach
