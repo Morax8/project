@@ -12,7 +12,7 @@ class gallery extends Model
         'nama',
         'text',
         'type',
-        'gambar',
+        'image',
         'active'
     ];
 }
