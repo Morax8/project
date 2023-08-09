@@ -36,32 +36,25 @@ class SlideController extends Controller
             'nama' => 'required|max:255',
             'image' => 'required|image',
         ]);
-        // Set the 'nama' field value from the form input
-        $input['nama'] = $request->input('nama');
 
-        // Check if the 'active' checkbox is checked and update the 'active' attribute accordingly
-        $slider->active = $request->has('active');
+        $input = [
+            'nama' => $request->input('nama'),
+            'active' => $request->has('active'),
+        ];
 
         if ($image = $request->file('image')) {
-            // Get the desired filename from the form input
             $desiredFileName = $request->input('nama');
-
-            // Append the original file extension to the sanitized filename
-            $imageName = $desiredFileName . '.' . $image->getClientOriginalExtension();
-
-            // Move the image to the destination path
+            $imageName = $desiredFileName . now()->format('Y-m-d') . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images');
             $image->move($destinationPath, $imageName);
-
-            // Save the image filename to the database
             $input['image'] = $imageName;
         }
 
-        // Save the data to the database
         Slider::create($input);
 
         return redirect('/sliders')->with('success', 'Data berhasil ditambahkan');
     }
+
 
 
     /**
@@ -86,25 +79,17 @@ class SlideController extends Controller
 
     public function update(Request $request, Slider $slider)
     {
-        // Validation rules for the form fields
         $request->validate([
             'nama' => 'required|max:255',
-            'image' => 'image', // Add any required image validation rules here
+            'image' => 'image',
         ]);
 
-        // Set the 'nama' field value from the form input
         $slider->nama = $request->input('nama');
-
-        // Check if the 'active' checkbox is checked and update the 'active' attribute accordingly
         $slider->active = $request->has('active');
 
-        // Check if a new image is being uploaded
         if ($request->hasFile('image')) {
             $image = $request->file('image');
-
-            // Generate a unique but identical name for the image
-            $imageName = $slider->nama . '-' . Str::random(1) . '.' . $image->getClientOriginalExtension();
-
+            $imageName = $slider->nama . now()->format('Y-m-d') . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images');
             $image->move($destinationPath, $imageName);
 
@@ -119,10 +104,6 @@ class SlideController extends Controller
         Session::flash('success', 'Slider updated successfully');
         return redirect('/sliders');
     }
-
-
-
-
 
 
     /**
