@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <img src="{{ asset('images/'.$item->image) }}" alt="" class="img-fluid">
                     <label for="">Image</label>
-                    <input type="file" class="form-control" name="gambar">
+                    <input type="file" class="form-control" name="image">
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
