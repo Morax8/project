@@ -130,3 +130,4 @@ Route::get('/gallery/create', [GalleryController::class, 'create'])->name('galle
 Route::match(['PUT', 'PATCH'], '/gallery/{type}/update/{id}', 'App\Http\Controllers\GalleryController@update')->name('gallery.update');
 //store
 Route::post('/gallery/store', 'App\Http\Controllers\GalleryController@store')->name('gallery.store');
+Route::delete('/gallery/{type}/{id}', 'App\Http\Controllers\GalleryController@destroy')->name('gallery.destroy');
