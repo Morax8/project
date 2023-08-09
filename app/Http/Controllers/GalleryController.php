@@ -79,7 +79,7 @@ class GalleryController extends Controller
                 'nama' => 'required|max:255',
                 'type' => 'required|max:255',
                 'text' => 'required',
-                'gambar' => 'required|image',
+                'image' => 'required|image',
 
             ]);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -89,24 +89,27 @@ class GalleryController extends Controller
         }
         //dd($request->all());
 
+        $gallery->nama = $request->input('nama');
+
+
         // Find the content by its ID
         $content = gallery::find($id);
         if (!$content) {
             return redirect('/{$type}cms')->with('error', 'Content not found.');
         }
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
 
-        if ($request->hasFile('gambar')) {
-            $image = $request->file('gambar');
-            $desiredFileName = $request->input('nama');
-            $imageName = $desiredFileName . '-' . Str::random(1) . '.' . $image->getClientOriginalExtension();
+            // Generate a unique but identical name for the image
+            $imageName = $gallery->nama . '-' . Str::random(1) . '.' . $image->getClientOriginalExtension();
 
             $destinationPath = public_path('images');
             $image->move($destinationPath, $imageName);
 
-            if ($content->gambar && file_exists(public_path('images/' . $content->gambar))) {
-                unlink(public_path('images/' . $content->gambar));
+            if ($gallery->image && file_exists(public_path('images/' . $gallery->image))) {
+                unlink(public_path('images/' . $gallery->image));
             }
-            $content->gambar = $imageName;
+            $slider->image = $imageName;
         }
         // Update the content based on the type
         if ($type === 'tsm' || $type === 'tip' || $type === 'tp' || $type === 'tm') {
