@@ -32,11 +32,11 @@
                 <div class="form-group">
                     <label for="type">Type</label>
                     <select name="type" id="type" class="form-control">
-                        <option value="" disabled selected>Please choose a type</option>
-                        <option value="tip">TIP</option>
-                        <option value="tm">TM</option>
-                        <option value="tsm">TSM</option>
-                        <option value="tp">TP</option>
+                        <option value="" disabled>Please choose a type</option>
+                        <option value="tip" {{ $item->type === 'tip' ? 'selected' : '' }}>TIP</option>
+                        <option value="tm" {{ $item->type === 'tm' ? 'selected' : '' }}>TM</option>
+                        <option value="tsm" {{ $item->type === 'tsm' ? 'selected' : '' }}>TSM</option>
+                        <option value="tp" {{ $item->type === 'tp' ? 'selected' : '' }}>TP</option>
                     </select>
                 </div>
                 <div class="form-group">

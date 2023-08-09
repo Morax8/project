@@ -7,7 +7,7 @@
     <a href="/gallery/type/{type}" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('gallery.store') }}" method="POST">
+            <form method="POST" action="{{ route('gallery.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="id" placeholder="ID">
@@ -24,11 +24,16 @@
                 @enderror
                 <div class="form-group">
                     <label for="">Image</label>
-                    <input type="file" class="form-control" name="gambar">
+                    <input type="file" class="form-control" name="image">
                 </div>
                 <div class="form-group">
-                    <label for="">Type</label>
-                    <input type="text" class="form-control" name="type" placeholder="type">
+                    <label for="type">Type</label>
+                    <select name="type" id="type" class="form-control">
+                        <option value="tip">TIP</option>
+                        <option value="tm">TM</option>
+                        <option value="tsm">TSM</option>
+                        <option value="tp">TP</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="">text</label>
