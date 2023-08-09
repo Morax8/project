@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\gallery;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoregalleryRequest;
 use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
@@ -17,7 +15,7 @@ class GalleryController extends Controller
 
         return view('admin.gallery.cmsIndex', [
             'gallery' => $gallery,
-            'galleryType' => $type,
+            'type' => $type,
         ]);
     }
 
@@ -34,36 +32,38 @@ class GalleryController extends Controller
         return view('admin.gallery.create');
     }
 
-    public function store(Request $request, $type)
+    public function store(Request $request)
     {
-        try {
-            $request->validate([
-                'nama' => 'required|max:255',
-                'text' => 'required|max:255',
-                'image' => 'required|image',
-            ]);
+        $request->validate([
+            'nama' => 'required|max:255',
+            'text' => 'required|max:255',
+            'type' => 'required|max:255',
+            'image' => 'required|file|image', // Updated image validation rule
+        ]);
 
-            $image = $request->file('image');
+        $input = [
+            'nama' => $request->input('nama'),
+            'type' => $request->input('type'),
+            'text' => $request->input('text'),
+            'active' => $request->has('active'), // Assuming you want to set 'active' based on checkbox
+        ];
+
+        // Check if an image is uploaded
+        if ($image = $request->file('image')) {
             $currentDate = now()->format('Ymd');
-            $imageName = $currentDate . '.' . $image->getClientOriginalExtension();
+            $desiredFileName = $request->input('nama');
+            $imageName = $desiredFileName . $currentDate . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('images');
             $image->move($destinationPath, $imageName);
-
-            $input = [
-                'nama' => $request->input('nama'),
-                'type' => $request->input('type'),
-                'text' => $request->input('text'),
-                'image' => $imageName,
-                'active' => $request->has('active'),
-            ];
-
-            gallery::create($input);
-
-            return redirect()->route('gallery.cmsIndex', ['type' => $type])->with('success', 'Content created successfully.');
-        } catch (\Exception $e) {
-            Log::error('Error creating content:', ['message' => $e->getMessage()]);
-            return redirect('/dashboard')->with('error', 'An error occurred while creating content.');
+            $input['image'] = $imageName; // Store the full path of the image
         }
+
+        gallery::create($input);
+
+
+        $type = $request->route('type');
+        $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+        return redirect($cmsIndexUrl)->with('success', 'Content created successfully.');
     }
 
 
@@ -88,7 +88,8 @@ class GalleryController extends Controller
             if ($request->hasFile('image')) {
                 $image = $request->file('image');
                 $currentDate = now()->format('Ymd');
-                $imageName = $currentDate . '.' . $image->getClientOriginalExtension();
+                $desiredFileName = $request->input('nama');
+                $imageName = $desiredFileName . $currentDate . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images');
                 $image->move($destinationPath, $imageName);
 
@@ -104,7 +105,8 @@ class GalleryController extends Controller
             $content->active = $request->has('active');
             $content->save();
 
-            return redirect()->route('gallery.cmsIndex', ['type' => $type])->with('success', 'Content updated successfully.');
+            $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+            return redirect($cmsIndexUrl)->with('success', 'Content created successfully.');
         } catch (\Exception $e) {
             Log::error('Error updating content:', ['message' => $e->getMessage()]);
             return redirect('/dashboard')->with('error', 'An error occurred while updating content.');
@@ -115,8 +117,19 @@ class GalleryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(gallery $gallery)
+    public function destroy(gallery $gallery, $id, $type)
     {
-        //
+        $gallery = gallery::findOrFail($id);
+
+        // Delete the image file from storage
+        $imagePath = public_path('images') . '/' . $gallery->image;
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+
+        $gallery->delete();
+
+        $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+        return redirect($cmsIndexUrl)->with('success', 'Content created successfully.');
     }
 }
