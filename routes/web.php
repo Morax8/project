@@ -1,16 +1,17 @@
 <?php
 
+use App\Policies\GalleryPolicy;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SlideController;
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
-use App\Policies\GalleryPolicy;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -131,3 +132,20 @@ Route::match(['PUT', 'PATCH'], '/gallery/{type}/update/{id}', 'App\Http\Controll
 //store
 Route::post('/gallery/store', 'App\Http\Controllers\GalleryController@store')->name('gallery.store');
 Route::delete('/gallery/{type}/{id}', 'App\Http\Controllers\GalleryController@destroy')->name('gallery.destroy');
+
+
+//Fasilitas CMS
+//index for each type
+Route::get('/fascms', [FasilitasController::class, 'fascms'])->name('fasilitas.index');
+Route::get('/sarcms', [FasilitasController::class, 'sarcms'])->name('sarana.index');
+Route::get('/pracms', [FasilitasController::class, 'pracms'])->name('prasarana.index');
+Route::get('/perpuscms', [FasilitasController::class, 'perpuscms'])->name('perpus.index');
+Route::get('/labcms', [FasilitasController::class, 'labcms'])->name('lab.index');
+//edit for each type
+Route::get('/fas/edit/{id}', [FasilitasController::class, 'fasEdit'])->name('fasilitas.edit');
+Route::get('/sar/edit/{id}', [FasilitasController::class, 'sarEdit'])->name('sarana.edit');
+Route::get('/pra/edit/{id}', [FasilitasController::class, 'praEdit'])->name('prasarana.edit');
+Route::get('/per/edit/{id}', [FasilitasController::class, 'perEdit'])->name('perpus.edit');
+Route::get('/lab/edit/{id}', [FasilitasController::class, 'labEdit'])->name('lab.edit');
+//update
+Route::match(['PUT', 'PATCH'], '/fasilitas/{type}/update/{id}', 'App\Http\Controllers\FasilitasController@update')->name('fasilitas.update');

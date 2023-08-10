@@ -207,6 +207,50 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </ul>
                         </li>
 
+                        <li
+                            class="nav-item has-treeview {{ Request::is('fascms', 'sarcms', 'pracms', 'labcms', 'perpuscms') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-edit"></i>
+                                <p>
+                                    Fasilitas
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/fascms" class="nav-link {{ Request::is('fascms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Fasilitas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/sarcms" class="nav-link {{ Request::is('sarcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Sarana</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/pracms" class="nav-link {{ Request::is('pracms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Prasarana</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/labcms" class="nav-link {{ Request::is('labcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Laboratorium</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/perpuscms"
+                                        class="nav-link {{ Request::is('perpuscms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Perpustakaan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
                         <!-- Log Out -->
                         <li class="nav-item">
                             <a href="/logout" class="nav-link">
