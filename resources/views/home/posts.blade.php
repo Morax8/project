@@ -2,7 +2,11 @@
 @section('container')
 
 @if ($posts->count())
+
 <div class="container mt-5">
+    <h2>
+        Berita Terkini Tentang SMK STRADA JAKARTA
+    </h2>
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card mb-3">

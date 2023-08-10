@@ -50,7 +50,7 @@
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Serba Serbi SMK STRADA</li>
                         <li>
-                            <a href="#">Berita Tentang SMK STRADA</a>
+                            <a href="/news">Berita Tentang SMK STRADA</a>
                         </li>
                         <li><a href="#">Estrakulikuler</a></li>
                         <li><a href="#">Kerja Sama Industri</a></li>

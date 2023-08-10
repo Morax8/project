@@ -40,4 +40,5 @@
             font-size: 20px;
         }
     </style>
-</div @endsection
+</div>
+@endsection

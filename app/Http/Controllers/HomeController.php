@@ -15,10 +15,10 @@ class HomeController extends Controller
 
         $posts = Post::latest()->paginate(3)->withQueryString(); // Get latest 3 posts
         $sliders = Slider::where('active', true)->get();
-        $gallerytip = Gallery::where('type', 'tip')->get();
-        $gallerytp = Gallery::where('type', 'tp')->get();
-        $gallerytm = Gallery::where('type', 'tm')->get();
-        $gallerytsm = Gallery::where('type', 'tsm')->get();
+        $gallerytip = Gallery::where('type', 'tip')->where('active', true)->get();
+        $gallerytp = Gallery::where('type', 'tp')->where('active', true)->get();
+        $gallerytm = Gallery::where('type', 'tm')->where('active', true)->get();
+        $gallerytsm = Gallery::where('type', 'tsm')->where('active', true)->get();
         return view('home.index', [
             "title" => "Home - SMK Strada Jakarta" . $title,
             "posts" => $posts,

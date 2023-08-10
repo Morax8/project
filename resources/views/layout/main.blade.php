@@ -66,7 +66,6 @@
 <body>
   @include('partials.navbar')
   @yield('container')
-  {{-- @include('partials.footer') --}}
 
   <style>
     .custom-container {
@@ -103,9 +102,7 @@
   <!-- Initiate Fancybox/Lightbox for Videos -->
   <script type="text/javascript">
     $(document).ready(function () {
-          /*
-           *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
-           */
+         
           $(".fancybox-media")
               .attr("rel", "media-gallery")
               .fancybox({
