@@ -61,8 +61,7 @@ class GalleryController extends Controller
         gallery::create($input);
 
 
-        $type = $request->route('type');
-        $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
+        $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $input['type']]);
         return redirect($cmsIndexUrl)->with('success', 'Content created successfully.');
     }
 
@@ -105,8 +104,8 @@ class GalleryController extends Controller
             $content->active = $request->has('active');
             $content->save();
 
-            $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $type]);
-            return redirect($cmsIndexUrl)->with('success', 'Content created successfully.');
+            $cmsIndexUrl = route('gallery.cmsIndex', ['type' => $content['type']]);
+            return redirect($cmsIndexUrl)->with('success', 'Content updated successfully.');
         } catch (\Exception $e) {
             Log::error('Error updating content:', ['message' => $e->getMessage()]);
             return redirect('/dashboard')->with('error', 'An error occurred while updating content.');
