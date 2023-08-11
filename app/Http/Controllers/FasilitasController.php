@@ -11,13 +11,13 @@ class FasilitasController extends Controller
     //fasilitas
     public function fascms()
     {
-        $fasilitas = Fasilitas::where('type', 'fasilitas')->get();
+        $fasilitas = Fasilitas::where('type', 'fas')->get();
         return view('admin.fasilitas.fas.fasIndex', compact('fasilitas'));
     }
 
     public function fasIndex()
     {
-        $fasilitas = Fasilitas::where('type', 'fasilitas')->get();
+        $fasilitas = Fasilitas::where('type', 'fas')->get();
         return view('fasilitas.fasilitas', compact('fasilitas'));
     }
 
@@ -31,13 +31,13 @@ class FasilitasController extends Controller
 
     public function sarcms()
     {
-        $sarana = Fasilitas::where('type', 'sarana')->get();
+        $sarana = Fasilitas::where('type', 'sar')->get();
         return view('admin.fasilitas.sarana.saranaIndex', compact('sarana'));
     }
 
     public function saranaIndex()
     {
-        $sarana = Fasilitas::where('type', 'sarana')->get();
+        $sarana = Fasilitas::where('type', 'sar')->get();
         return view('fasilitas.sarana', compact('sarana'));
     }
 
@@ -50,13 +50,13 @@ class FasilitasController extends Controller
     //prasarana
     public function prascms()
     {
-        $prasarana = Fasilitas::where('type', 'prasarana')->get();
+        $prasarana = Fasilitas::where('type', 'pras')->get();
         return view('admin.fasilitas.prasarana.prasIndex', compact('prasarana'));
     }
 
     public function prasaranaIndex()
     {
-        $prasarana = Fasilitas::where('type', 'prasarana')->get();
+        $prasarana = Fasilitas::where('type', 'pras')->get();
         return view('fasilitas.prasarana', compact('prasarana'));
     }
 

@@ -47,31 +47,11 @@ Route::get('/tp', [JurusanController::class, 'indexTp']);
 
 
 //fasilitas
-Route::get('/fasilitas', function () {
-    return view('fasilitas.fasilitas', [
-        "title" => "Fasilitas"
-    ]);
-});
-Route::get('/sarana', function () {
-    return view('fasilitas.sarana', [
-        "title" => "Sarana"
-    ]);
-});
-Route::get('/prasarana', function () {
-    return view('fasilitas.prasarana', [
-        "title" => "Prasarana"
-    ]);
-});
-Route::get('/perpus', function () {
-    return view('fasilitas.perpus', [
-        "title" => "Perpustakaan"
-    ]);
-});
-Route::get('/lab', function () {
-    return view('fasilitas.lab', [
-        "title" => "Laboratorium"
-    ]);
-});
+Route::get('/fasilitas', [FasilitasController::class, 'fasIndex']);
+Route::get('/sarana', [FasilitasController::class, 'saranaIndex']);
+Route::get('/prasarana', [FasilitasController::class, 'prasaranaIndex']);
+Route::get('/lab', [FasilitasController::class, 'labIndex']);
+Route::get('/perpus', [FasilitasController::class, 'perpusIndex']);
 
 //news
 Route::get('/news', [PostController::class, 'index',]);
@@ -138,7 +118,7 @@ Route::delete('/gallery/{type}/{id}', 'App\Http\Controllers\GalleryController@de
 //index for each type
 Route::get('/fascms', [FasilitasController::class, 'fascms'])->name('fasilitas.index');
 Route::get('/sarcms', [FasilitasController::class, 'sarcms'])->name('sarana.index');
-Route::get('/pracms', [FasilitasController::class, 'pracms'])->name('prasarana.index');
+Route::get('/prascms', [FasilitasController::class, 'prascms'])->name('prasarana.index');
 Route::get('/perpuscms', [FasilitasController::class, 'perpuscms'])->name('perpus.index');
 Route::get('/labcms', [FasilitasController::class, 'labcms'])->name('lab.index');
 //edit for each type
