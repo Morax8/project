@@ -21,7 +21,7 @@
                     <td class="col-md-2">{{ $item->title }}</td>
                     <td class="col-md-8">{!! $item->content !!}</td>
                     <td>
-                        <a href="{{ route('tm.edit', $item->id) }}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('sarana.edit', $item->id) }}" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>
                 @endforeach

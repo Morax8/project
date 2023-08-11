@@ -208,8 +208,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li
-                            class="nav-item has-treeview {{ Request::is('fascms', 'sarcms', 'pracms', 'labcms', 'perpuscms') ? 'menu-open' : '' }}">
-                            <a href="#" class="nav-link">
+                            class="nav-item has-treeview {{ (Request::is('fascms', 'sarcms', 'pracms', 'labcms', 'perpuscms') || Request::is('fas/edit/*', 'sar/edit/*', 'pra/edit/*', 'per/edit/*', 'lab/edit/*')) ? 'menu-open' : '' }}">
+                            <a href="#"
+                                class="nav-link {{ Route::is('fas.edit', 'sarana.edit', 'pras.edit', 'perpus.edit', 'lab.edit') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-edit"></i>
                                 <p>
                                     Fasilitas
