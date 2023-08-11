@@ -372,6 +372,25 @@
         margin-bottom: 50px;
         color: #fff;
     }
+
+    /* Default styles for larger screens */
+    .isotopeSelector {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .isotopeSelector .article {
+        flex: 0 0 calc(33.33% - 20px);
+    }
+
+    /* Media query for smaller screens, e.g., portrait mode */
+    @media screen and (max-width: 768px) {
+        .isotopeSelector .article {
+            flex: 0 0 calc(50% - 10px);
+            /* Adjust column width for smaller screens */
+        }
+    }
 </style>
 
 
