@@ -38,7 +38,8 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas<b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header" href="/fasilitas">Fasilitsa</li>
+                        <li class="dropdown-header">Fasilitas SMK STRADA</li>
+                        <li><a href="/fasilitas">Fasilitas</a></li>
                         <li><a href="/sarana">Sarana</a></li>
                         <li><a href="/prasarana">Prasarana</a></li>
                         <li><a href="/perpus">Perpustakaan</a></li>

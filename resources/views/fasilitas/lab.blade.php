@@ -1,14 +1,21 @@
 @extends('layout.main')
+@section('title', 'Laboratorium')
 @section('container')
-<header>
-    <h1>Laboratorium</h1>
-</header>
+
+<div class="container">
+    @foreach ($lab as $item)
+    <header>
+        <h1>{{ $item->title }}</h1>
+    </header>
+
+    {!! $item->content !!}
+    @endforeach
+    <p></p>
+</div>
 
 <style>
-    h1 {
-        text-align: center;
-        font-size: 30px
+    li {
+        font-size: 20px;
     }
 </style>
-
 @endsection

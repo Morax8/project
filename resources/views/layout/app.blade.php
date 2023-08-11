@@ -230,7 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/pracms" class="nav-link {{ Request::is('pracms') ? 'active' : '' }}">
+                                    <a href="/prascms" class="nav-link {{ Request::is('prascms') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Prasarana</p>
                                     </a>
