@@ -120,7 +120,7 @@ class FasilitasController extends Controller
         }
 
         // Update the content based on the type
-        if ($type === 'tsm' || $type === 'tip' || $type === 'tp' || $type === 'tm') {
+        if ($type === 'sar' || $type === 'pras' || $type === 'fas' || $type === 'lab' || $type === 'perpus') {
             $content->update([
                 'title' => $request->title,
                 'content' => $request->content,

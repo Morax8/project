@@ -122,9 +122,9 @@ Route::get('/prascms', [FasilitasController::class, 'prascms'])->name('prasarana
 Route::get('/perpuscms', [FasilitasController::class, 'perpuscms'])->name('perpus.index');
 Route::get('/labcms', [FasilitasController::class, 'labcms'])->name('lab.index');
 //edit for each type
-Route::get('/fas/edit/{id}', [FasilitasController::class, 'fasEdit'])->name('fasilitas.edit');
+Route::get('/fas/edit/{id}', [FasilitasController::class, 'fasEdit'])->name('fas.edit');
 Route::get('/sar/edit/{id}', [FasilitasController::class, 'sarEdit'])->name('sarana.edit');
-Route::get('/pra/edit/{id}', [FasilitasController::class, 'praEdit'])->name('prasarana.edit');
+Route::get('/pra/edit/{id}', [FasilitasController::class, 'praEdit'])->name('pras.edit');
 Route::get('/per/edit/{id}', [FasilitasController::class, 'perEdit'])->name('perpus.edit');
 Route::get('/lab/edit/{id}', [FasilitasController::class, 'labEdit'])->name('lab.edit');
 //update
