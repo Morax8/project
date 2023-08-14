@@ -11,6 +11,7 @@ use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 
 /*
@@ -58,10 +59,17 @@ Route::get('/news', [PostController::class, 'index',]);
 Route::get('/news/{post:slug}', [PostController::class, 'show',]);
 
 
+//kerjasama
+Route::get('/kerjasama', [KerjasamaController::class, 'Index']);
+
+
 //auth
 Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticated']);
 Route::get('/logout', [AuthController::class, 'logout']);
+
+
+
 
 //CMS
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
@@ -129,3 +137,12 @@ Route::get('/per/edit/{id}', [FasilitasController::class, 'perEdit'])->name('per
 Route::get('/lab/edit/{id}', [FasilitasController::class, 'labEdit'])->name('lab.edit');
 //update
 Route::match(['PUT', 'PATCH'], '/fasilitas/{type}/update/{id}', 'App\Http\Controllers\FasilitasController@update')->name('fasilitas.update');
+
+
+//kerjasamaCMS
+//index
+Route::get('/kscms', [KerjasamaController::class, 'cmsIndex'])->name('kerjasama.index');
+//edit
+Route::get('/kerjasama/edit/{id}', [KerjasamaController::class, 'cmsEdit'])->name('kerjasama.edit');
+//update
+Route::match(['PUT', 'PATCH'], '/kerjasama/update/{id}', 'App\Http\Controllers\KerjasamaController@update')->name('kerjasama.update');
