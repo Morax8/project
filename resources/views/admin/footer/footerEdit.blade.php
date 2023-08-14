@@ -42,7 +42,7 @@
                 @enderror
                 <div class="form-group">
                     <label for="">website</label>
-                    <input type="text" class="form-control" name="website" value="{{ $footer->website }}">
+                    <input type="text" class="form-control" name="website" value="{{ $footer->web }}">
                 </div>
                 @error('email')
                 <small style="color: red">{{ $message }}</small>
@@ -56,15 +56,8 @@
                 @enderror
                 <div class="form-group">
                     <label for="">About</label>
-                    <textarea type="text" class="form-control" name="about"
+                    <textarea type="text" class="form-control" name="about_content"
                         rows="10">{{ $footer->about_content }}</textarea>
-                </div>
-                @error('maps')
-                <small style="color: red">{{ $message }}</small>
-                @enderror
-                <div class="form-group">
-                    <label for="">Maps</label>
-                    <input type="text" class="form-control" name="maps" value="{{ $footer->maps }}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block Edit">Submit</button>
@@ -73,6 +66,15 @@
         </div>
     </div>
 </div>
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 
 
 <script>

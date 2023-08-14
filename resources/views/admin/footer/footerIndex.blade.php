@@ -23,7 +23,7 @@
                 <tr>
                     <td>
                         <img src="{{ asset('images/'.$item->logo) }}" alt="" class="img-fluid"
-                            style="display: block; margin: 0 auto; width: 50%; height: 50%;">
+                            style="display: block; margin: 0 auto; width: 80%; height: 80%;">
                     </td>
                     <td>{!! $item->address !!}</td>
                     <td>{{ $item->phone }}</td>

@@ -23,26 +23,27 @@ class FooterController extends Controller
     public function update(Request $request)
     {
         $request->validate([
+            'logo' => 'nullable|image',
             'address' => 'required',
             'phone' => 'required',
             'website' => 'required',
             'email' => 'required|email',
             'about_content' => 'required',
-            'map_embed' => 'required',
         ]);
+
 
         $footer = Footer::firstOrFail(); // Assuming you have only one footer record
 
         $footer->update([
+            'logo' => $request->file('logo')->store('public/images'),
             'address' => $request->address,
             'phone' => $request->phone,
             'website' => $request->website,
             'email' => $request->email,
             'about_content' => $request->about_content,
-            'map_embed' => $request->map_embed,
             // Add more fields as needed
         ]);
 
-        return redirect()->route('footer.edit')->with('success', 'Footer content updated successfully.');
+        return redirect('/footercms')->with('success', 'Footer content updated successfully.');
     }
 }
