@@ -53,8 +53,8 @@
                         <li>
                             <a href="/news">Berita Tentang SMK STRADA</a>
                         </li>
-                        <li><a href="#">Estrakulikuler</a></li>
-                        <li><a href="#">Kerja Sama Industri</a></li>
+                        <li><a href="/eskul">Estrakulikuler</a></li>
+                        <li><a href="/kerjasama">Kerja Sama Industri</a></li>
                         <li><a href="#">PPDB</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Dokumentasi</li>
