@@ -5,43 +5,30 @@
             <div class="col-md-3">
                 <div>
                     <a href="index.html">
-                        <img class="footer-logo" src="{{ asset('Frontend/img/strada.png') }}" alt="logo" />
+                        <img class="footer-logo" src="{{ asset('images/'.$footer->logo) }}" alt="logo" />
                     </a>
                 </div>
                 <div>
                     <address class="margin-bottom-30">
-                        <p>
-                            Jl. Rajawali Selatan II No 1<br />
-                            Jakarta Pusat <br />
-                            10720
-                        </p>
+                        {!! $footer->address !!}
                     </address>
                 </div>
                 <div class="margin-bottom-30">
                     <p>
-                        <i class="fa fa-phone"></i> +49 561 00 00 00 00
+                        <i class="fa fa-phone"></i> {{ $footer->phone }}
                         <br />
-                        <i class="fa fa-envelope"></i> info@stmstrada.sch.id
+                        <i class="fa fa-envelope"></i> {{ $footer->email }}
                     </p>
                 </div>
                 <div>
-                    <a href="https://www.stmstrada.sch.id/">www.stmstrada.sch.id/</a>
+                    <a href="{{ $footer->web }}">{{ $footer->web }}</a>
                     <br />
-                    <a href="mailto:info@stmstrada.sch.id">info@stmstrada.sch.id</a>
+                    <a href="mailto:{{ $footer->email }}">{{ $footer->email }}</a>
                 </div>
             </div>
             <div class="col-md-3 footer-menu">
-                <h4>About Us</h4>
-                <p>
-                    Nam liber tempor cum soluta nobis eleifend option congue nihil
-                    imperdiet doming id quod mazim placerat facer possim assum.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                    nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam
-                    erat volutpat.
-                </p>
-                <a href="about-us.html">
+                {!! $footer->about_content !!}
+                <a href="#">
                     <button class="btn btn-primary">Read More</button>
                 </a>
             </div>

@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SlideController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
@@ -146,3 +147,8 @@ Route::get('/kscms', [KerjasamaController::class, 'cmsIndex'])->name('kerjasama.
 Route::get('/kerjasama/edit/{id}', [KerjasamaController::class, 'cmsEdit'])->name('kerjasama.edit');
 //update
 Route::match(['PUT', 'PATCH'], '/kerjasama/update/{id}', 'App\Http\Controllers\KerjasamaController@update')->name('kerjasama.update');
+
+//footer
+Route::get('/footercms', [FooterController::class, 'cmsIndex'])->name('footer.index');
+Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('footer.edit');
+Route::put('/footer/update', [FooterController::class, 'update'])->name('footer.update');
