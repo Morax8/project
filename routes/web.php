@@ -14,6 +14,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
+use App\Http\Controllers\DescriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -152,3 +153,7 @@ Route::match(['PUT', 'PATCH'], '/kerjasama/update/{id}', 'App\Http\Controllers\K
 Route::get('/footercms', [FooterController::class, 'cmsIndex'])->name('footer.index');
 Route::get('/footer/edit/', [FooterController::class, 'edit'])->name('footer.edit');
 Route::put('/footer/update', [FooterController::class, 'update'])->name('footer.update');
+//desc cms
+Route::get('/desc', [DescriptionController::class, 'descIndex'])->name('desc.index');
+Route::get('/desc/edit/', [DescriptionController::class, 'edit'])->name('desc.edit');
+Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc.update');

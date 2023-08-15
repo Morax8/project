@@ -27,10 +27,11 @@
         </a>
     </div>
     <div class="intro-text text-center">
-        <div class="intro-lead-in">Welcome To SMK Strada Jakarta!</div>
-        <div class="intro-heading">SMK TERBAIK DI JAKARTA</div>
+        <div class="intro-lead-in">{{ $desc->header1 }}</div>
+        <div class="intro-heading">{{ $desc->header2 }}</div>
         <a href="#intro" class="btn btn-primary btn-lg">See More</a>
     </div>
+
 </div>
 <!-- End Carousel -->
 
@@ -42,13 +43,13 @@
         <div class="row margin-bottom-50">
             <div class="col-md-12 text-center">
                 <h1 class="title-section">
-                    <span class="title-regular">Lorem ipsum dolor sit. <strong>SMK Terbaik</strong></span><br />
-                    Lorem ipsum dolor sit amet..
+                    <span class="title-regular">{{ $desc->descspan }} <strong>{{ $desc->descstrong
+                            }}</strong></span><br />
+                    {{ $desc->desch1 }}
                 </h1>
                 <hr class="title-underline-center" />
                 <p class="lead">
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, <br />
-                    sed diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                    {!! $desc->desc !!}
                 </p>
             </div>
         </div>
@@ -59,11 +60,8 @@
             <div class="col-md-4">
                 <div>
                     <i class="fas fa-graduation-cap"></i>
-                    <label><strong>4</strong> <br />Jurusan</label>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        diam nonumy eirmod tempor invidunt ut labore
-                    </p>
+                    <label><strong>{{ $desc->jmljurusan }}</strong> <br />{{ $desc->jurusan }}</label>
+                    {!! $desc->descjurusan !!}
                 </div>
             </div>
 
@@ -71,11 +69,8 @@
             <div class="col-md-4">
                 <div>
                     <i class="fas fa-users"></i>
-                    <label><strong>2543</strong> <br />Siswa</label>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        diam nonumy eirmod tempor invidunt ut labore
-                    </p>
+                    <label><strong>{{ $desc->jmlsiswa }}</strong> <br />{{ $desc->siswa }}</label>
+                    {!! $desc->descsiswa !!}
                 </div>
             </div>
 
@@ -83,16 +78,14 @@
             <div class="col-md-4">
                 <div>
                     <i class="fas fa-users-cog"></i>
-                    <label><strong>14489</strong> <br />Guru / Staff</label>
-                    <p>
-                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                        diam nonumy eirmod tempor invidunt ut labore
-                    </p>
+                    <label><strong>{{ $desc->jmlguru }}</strong> <br />{{ $desc->guru }}</label>
+                    {!! $desc->descguru !!}
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="page-section-no-padding">
     <!-- /Gallery -->
@@ -268,7 +261,7 @@
 
     <div class="text-center">
         <button type="button" class="btn btn-primary">
-            VIEW MORE PROJECTS <i class="fa fa-arrow-right"></i>
+            VIEW MORE <i class="fa fa-arrow-right"></i>
         </button>
     </div>
 </section>
