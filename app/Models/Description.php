@@ -8,4 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Description extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'header1',
+        'header2',
+        'descspan',
+        'descstrong',
+        'desch1',
+        'desc',
+        'jmljurusan',
+        'jurusan',
+        'descjurusan',
+        'jmlsiswa',
+        'siswa',
+        'descsiswa',
+        'jmlguru',
+        'guru',
+        'descguru',
+    ];
 }

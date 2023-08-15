@@ -45,7 +45,25 @@ class DescriptionController extends Controller
             // Add more validation rules for other fields
         ]);
 
-        $description->update($request->all());
+        $description = Description::firstOrFail();
+
+        $description->update([
+            'header1' => $request->header1,
+            'header2' => $request->header2,
+            'descspan' => $request->descspan,
+            'descstrong' => $request->descstrong,
+            'desch1' => $request->desch1,
+            'desc' => $request->desc,
+            'jmljurusan' => $request->jmljurusan,
+            'jurusan' => $request->jurusan,
+            'descjurusan' => $request->descjurusan,
+            'jmlsiswa' => $request->jmlsiswa,
+            'siswa' => $request->siswa,
+            'descsiswa' => $request->descsiswa,
+            'jmlguru' => $request->jmlguru,
+            'guru' => $request->guru,
+            'descguru' => $request->descguru,
+        ]);
 
         return redirect('/desc')
             ->with('success', 'Description updated successfully.');

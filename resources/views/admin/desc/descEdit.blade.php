@@ -77,4 +77,39 @@
         <button type="submit" class="btn btn-primary">Update Description</button>
     </form>
 </div>
+<script>
+    // Function to display the Swal toast message
+    function showSwalToast(message) {
+        Swal.fire({
+            toast: true,
+            icon: "success",
+            title: message,
+            animation: true,
+            position: "top-right",
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener("mouseenter", Swal.stopTimer);
+                toast.addEventListener("mouseleave", Swal.resumeTimer);
+            },
+        });
+    }
+
+    // Add event listener to the form submit button
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show the Swal toast message
+        showSwalToast("Edit Success");
+
+        // Submit the form after a short delay
+        setTimeout(() => {
+            this.submit();
+        }, 2000); // delay before form submission
+
+        // Redirect to the desired page after another short delay
+        setTimeout(() => 2500); // ds delay before redirection
+    });
+</script>
 @endsection
