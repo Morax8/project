@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Footer;
 use App\Models\Jurusan;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class JurusanController extends Controller
@@ -17,7 +18,8 @@ class JurusanController extends Controller
     public function indexTsm()
     {
         $tsmjurusan = jurusan::where('type', 'tsm')->get();
-        return view('jurusan.tsm', compact('tsmjurusan'));
+        $footer = Footer::firstorFail();
+        return view('jurusan.tsm', compact('tsmjurusan', 'footer'));
     }
     public function editTsm($id)
     {
@@ -34,7 +36,8 @@ class JurusanController extends Controller
     public function indexTip()
     {
         $tipjurusan = jurusan::where('type', 'tip')->get();
-        return view('jurusan.tip', compact('tipjurusan'));
+        $footer = Footer::firstorFail();
+        return view('jurusan.tip', compact('tipjurusan', 'footer'));
     }
 
     public function editTip($id)
@@ -53,7 +56,8 @@ class JurusanController extends Controller
     public function indexTp()
     {
         $tpjurusan = jurusan::where('type', 'tp')->get();
-        return view('jurusan.tp', compact('tpjurusan'));
+        $footer = Footer::firstorFail();
+        return view('jurusan.tp', compact('tpjurusan', 'footer'));
     }
 
     public function editTp($id)
@@ -71,7 +75,8 @@ class JurusanController extends Controller
     public function indexTm()
     {
         $tmjurusan = jurusan::where('type', 'tm')->get();
-        return view('jurusan.tm', compact('tmjurusan'));
+        $footer = Footer::firstorFail();
+        return view('jurusan.tm', compact('tmjurusan', 'footer'));
     }
 
     public function editTm($id)

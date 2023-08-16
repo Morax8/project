@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 class FooterController extends Controller
 {
 
+    public function index()
+    {
+        $footer = Footer::all();
+        return view('partials.footer', compact('footer'));
+    }
+
     public function cmsIndex()
     {
         $footer = Footer::all();

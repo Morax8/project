@@ -55,7 +55,7 @@
                         </li>
                         <li><a href="/eskul">Estrakulikuler</a></li>
                         <li><a href="/kerjasama">Kerja Sama Industri</a></li>
-                        <li><a href="#">PPDB</a></li>
+                        <li><a href="https://forms.gle/DHxmDWWrgTqse9qV7">PPDB</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Dokumentasi</li>
                         <li><a href="#">Kegiatan</a></li>

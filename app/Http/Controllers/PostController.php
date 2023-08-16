@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Contracts\Session\Session;
+use App\Models\Footer;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Contracts\Session\Session;
 
 
 class PostController extends Controller
@@ -18,10 +19,12 @@ class PostController extends Controller
     {
 
         $title = '';
+        $footer = Footer::firstorFail();
         return view('home.posts', [
             "title" => "All News" . $title,
             "active" => "News",
-            "posts" => Post::latest()->paginate(7)->withQueryString()
+            "posts" => Post::latest()->paginate(7)->withQueryString(),
+            "footer" => $footer,
         ]);
     }
 

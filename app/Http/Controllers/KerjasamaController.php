@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use App\Models\kerjasama;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class KerjasamaController extends Controller
 {
@@ -22,7 +24,8 @@ class KerjasamaController extends Controller
     public function Index()
     {
         $ks = kerjasama::all();
-        return view('home.kerjasama', compact('ks'));
+        $footer = Footer::firstorFail();
+        return view('home.kerjasama', compact('ks', 'footer'));
     }
 
     public function update(Request $request, $id)

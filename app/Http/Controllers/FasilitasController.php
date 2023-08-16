@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Footer;
 use App\Models\Fasilitas;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class FasilitasController extends Controller
 {
@@ -18,7 +20,8 @@ class FasilitasController extends Controller
     public function fasIndex()
     {
         $fasilitas = Fasilitas::where('type', 'fas')->get();
-        return view('fasilitas.fasilitas', compact('fasilitas'));
+        $footer = Footer::firstorFail();
+        return view('fasilitas.fasilitas', compact('fasilitas', 'footer'));
     }
 
     public function fasEdit($id)
@@ -38,7 +41,8 @@ class FasilitasController extends Controller
     public function saranaIndex()
     {
         $sarana = Fasilitas::where('type', 'sar')->get();
-        return view('fasilitas.sarana', compact('sarana'));
+        $footer = Footer::firstorFail();
+        return view('fasilitas.sarana', compact('sarana', 'footer'));
     }
 
     public function saranaEdit($id)
@@ -57,7 +61,8 @@ class FasilitasController extends Controller
     public function prasaranaIndex()
     {
         $prasarana = Fasilitas::where('type', 'pras')->get();
-        return view('fasilitas.prasarana', compact('prasarana'));
+        $footer = Footer::firstorFail();
+        return view('fasilitas.prasarana', compact('prasarana', 'footer'));
     }
 
     public function prasaranaEdit($id)
@@ -77,7 +82,8 @@ class FasilitasController extends Controller
     public function labIndex()
     {
         $lab = Fasilitas::where('type', 'lab')->get();
-        return view('fasilitas.lab', compact('lab'));
+        $footer = Footer::firstorFail();
+        return view('fasilitas.lab', compact('lab', 'footer'));
     }
 
     public function labEdit($id)
@@ -96,7 +102,8 @@ class FasilitasController extends Controller
     public function perpusIndex()
     {
         $perpus = Fasilitas::where('type', 'perpus')->get();
-        return view('fasilitas.perpus', compact('perpus'));
+        $footer = Footer::firstorFail();
+        return view('fasilitas.perpus', compact('perpus', 'footer'));
     }
 
     public function perpusEdit($id)
