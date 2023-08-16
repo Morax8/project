@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Models\Footer;
 
 class ProfileController extends Controller
 {
     public function sejarah()
     {
         $sejprof = Profile::where('type', 'sej')->get();
-        return view('profile.sejarah', compact('sejprof'));
+        $footer = Footer::firstorFail();
+        return view('profile.sejarah', compact('sejprof', 'footer'));
     }
 
     public function indexSejarah()
@@ -29,7 +30,8 @@ class ProfileController extends Controller
     public function visimisi()
     {
         $vmprof = Profile::where('type', 'vm')->get();
-        return view('profile.visimisi', compact('vmprof'));
+        $footer = Footer::firstorFail();
+        return view('profile.visimisi', compact('vmprof', 'footer'));
     }
 
     public function indexVisimisi()
@@ -46,7 +48,8 @@ class ProfileController extends Controller
     public function logo()
     {
         $logoprof = Profile::where('type', 'logo')->get();
-        return view('profile.logo', compact('logoprof'));
+        $footer = Footer::firstorFail();
+        return view('profile.logo', compact('logoprof', 'footer'));
     }
 
     public function indexLogo()
