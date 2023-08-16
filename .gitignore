@@ -17,10 +17,3 @@ yarn-error.log
 /.fleet
 /.idea
 /.vscode
-composer.json
-composer.lock
-.editorconfig
-artisan 
-package.json
-phpunit.xml
-vite.config.js
