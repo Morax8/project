@@ -119,7 +119,7 @@
     <div class="portfolio-section port-col">
         <div class="row">
             <div class="isotopeContainer">
-                <div class="col-md-4 isotopeSelector tm">
+                <div class="col-md-3 isotopeSelector tm">
                     @foreach ($gallerytm as $item)
                     <article class="">
                         <figure>
@@ -153,7 +153,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tip">
+                <div class="col-md-3 isotopeSelector tip">
                     @foreach ($gallerytip as $item)
                     <article class="">
                         <figure>
@@ -187,7 +187,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tp">
+                <div class="col-md-3 isotopeSelector tp">
                     @foreach ($gallerytp as $item)
                     <article class="">
                         <figure>
@@ -221,7 +221,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tsm">
+                <div class="col-md-3 isotopeSelector tsm">
                     @foreach ($gallerytsm as $item)
                     <article class="">
                         <figure>
@@ -253,7 +253,6 @@
                     </article>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>

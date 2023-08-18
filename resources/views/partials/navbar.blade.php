@@ -59,7 +59,7 @@
                         <li class="divider"></li>
                         <li class="dropdown-header">Dokumentasi</li>
                         <li><a href="#">Kegiatan</a></li>
-                        <li><a href="#">Gallery</a></li>
+                        <li><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>
                 <li><a href="/contact">Contact</a></li>
