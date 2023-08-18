@@ -5,10 +5,23 @@ namespace App\Http\Controllers;
 use App\Models\gallery;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Footer;
 use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
+    public function show()
+
+    {
+        $gallerytip = Gallery::where('type', 'tip')->where('active', true)->get();
+        $gallerytp = Gallery::where('type', 'tp')->where('active', true)->get();
+        $gallerytm = Gallery::where('type', 'tm')->where('active', true)->get();
+        $gallerytsm = Gallery::where('type', 'tsm')->where('active', true)->get();
+        $gallery = gallery::all();
+        $footer = Footer::firstorFail();
+        return view('home.gallery', compact('gallerytm', 'gallerytsm', 'gallerytip', 'gallerytp', 'footer', 'gallery'));
+    }
+
     public function cmsIndex($type)
     {
         $gallery = Gallery::where('type', $type)->get();
@@ -90,13 +103,18 @@ class GalleryController extends Controller
                 $desiredFileName = $request->input('nama');
                 $imageName = $desiredFileName . $currentDate . '.' . $image->getClientOriginalExtension();
                 $destinationPath = public_path('images');
-                $image->move($destinationPath, $imageName);
 
+                // Delete the existing image
                 if ($content->image && file_exists(public_path('images/' . $content->image))) {
                     unlink(public_path('images/' . $content->image));
                 }
+
+                // Move and save the new image
+                $image->move($destinationPath, $imageName);
+
                 $content->image = $imageName;
             }
+
 
             $content->nama = $request->input('nama');
             $content->text = $request->input('text');
