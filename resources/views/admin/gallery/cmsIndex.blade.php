@@ -10,6 +10,7 @@
         <li>Di Homepage max 2 per type</li>
         <li>di gallery page juga</li>
     </ul>
+    <small>*Cuma bisa jpg, png | jfif tidak bisa</small>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead>
