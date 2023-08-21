@@ -140,8 +140,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -174,8 +173,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -208,8 +206,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -242,8 +239,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>

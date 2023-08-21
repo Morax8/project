@@ -13,13 +13,9 @@ class GalleryController extends Controller
     public function show()
 
     {
-        $gallerytip = Gallery::where('type', 'tip')->where('active', true)->get();
-        $gallerytp = Gallery::where('type', 'tp')->where('active', true)->get();
-        $gallerytm = Gallery::where('type', 'tm')->where('active', true)->get();
-        $gallerytsm = Gallery::where('type', 'tsm')->where('active', true)->get();
-        $gallery = gallery::all();
+        $gallery = gallery::latest()->paginate(8);
         $footer = Footer::firstorFail();
-        return view('home.gallery', compact('gallerytm', 'gallerytsm', 'gallerytip', 'gallerytp', 'footer', 'gallery'));
+        return view('home.gallery', compact('footer', 'gallery'));
     }
 
     public function cmsIndex($type)
