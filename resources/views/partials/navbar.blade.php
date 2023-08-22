@@ -58,7 +58,7 @@
                         <li><a href="https://forms.gle/DHxmDWWrgTqse9qV7">PPDB</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Dokumentasi</li>
-                        <li><a href="#">Kegiatan</a></li>
+                        <li><a href="/kegiatan">Kegiatan</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>

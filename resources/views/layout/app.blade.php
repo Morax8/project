@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                         <!-- Homepage Dropdown -->
                         <li
-                            class="nav-item has-treeview {{ Request::is('sliders*', 'postscms*', 'kscms*', 'desc*') ? 'menu-open' : '' }}">
+                            class="nav-item has-treeview {{ Request::is('sliders*', 'postscms*', 'kscms*', 'desc*', 'kegcms') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
@@ -104,6 +104,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <a href="/desc" class="nav-link  {{ Request::is('desc') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Deskripsi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/kegcms" class="nav-link  {{ Request::is('kegcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Kegiatan</p>
                                     </a>
                                 </li>
                             </ul>

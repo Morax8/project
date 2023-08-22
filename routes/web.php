@@ -10,6 +10,7 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
@@ -37,6 +38,9 @@ Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('con
 
 //gallery
 Route::get('/gallery', [GalleryController::class, 'show']);
+
+//kegiatan
+Route::get('/kegiatan',[KegiatanController::class, 'index']);
 
 
 //profile
@@ -160,3 +164,5 @@ Route::put('/footer/update', [FooterController::class, 'update'])->name('footer.
 Route::get('/desc', [DescriptionController::class, 'descIndex'])->name('desc.index');
 Route::get('/desc/edit/', [DescriptionController::class, 'edit'])->name('desc.edit');
 Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc.update');
+
+Route::get('/kegcms',[kegiatanController::class, 'show'])->name('kegcms.show');
