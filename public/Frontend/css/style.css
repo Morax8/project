@@ -359,7 +359,7 @@ a:focus {
 }
 
 .form-control:focus {
-    -webkit-box-shadow: 0px 0px 0px;
+    box-shadow: 0px 0px 0px;
     -moz-box-shadow: 0px 0px 0px;
     border: none;
     outline: none;
@@ -915,7 +915,7 @@ a:focus {
 /* 07 - Page Title & Breadcrumps
 -------------------------------------------------- */
 
-. .form-inline {
+.form-inline {
     display: inline;
 }
 

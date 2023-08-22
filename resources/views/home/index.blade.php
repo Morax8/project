@@ -119,7 +119,7 @@
     <div class="portfolio-section port-col">
         <div class="row">
             <div class="isotopeContainer">
-                <div class="col-md-4 isotopeSelector tm">
+                <div class="col-md-3 isotopeSelector tm">
                     @foreach ($gallerytm as $item)
                     <article class="">
                         <figure>
@@ -140,8 +140,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -153,7 +152,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tip">
+                <div class="col-md-3 isotopeSelector tip">
                     @foreach ($gallerytip as $item)
                     <article class="">
                         <figure>
@@ -174,8 +173,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -187,7 +185,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tp">
+                <div class="col-md-3 isotopeSelector tp">
                     @foreach ($gallerytp as $item)
                     <article class="">
                         <figure>
@@ -208,8 +206,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -221,7 +218,7 @@
                 </div>
 
 
-                <div class="col-md-4 isotopeSelector tsm">
+                <div class="col-md-3 isotopeSelector tsm">
                     @foreach ($gallerytsm as $item)
                     <article class="">
                         <figure>
@@ -242,8 +239,7 @@
                                                 <a title="Project Image" class="fancybox-pop fancybox.image"
                                                     href="{{ asset('images/' . $item->image) }}"><i
                                                         class="fa fa-search fa-border fa-2x"></i></a>
-                                                <a title="Project Link" href="#"><i
-                                                        class="fa fa-link fa-border fa-2x"></i></a>
+
                                             </p>
                                         </div>
                                     </div>
@@ -253,7 +249,6 @@
                     </article>
                     @endforeach
                 </div>
-
             </div>
         </div>
     </div>

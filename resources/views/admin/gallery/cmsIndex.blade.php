@@ -5,6 +5,12 @@
 
 <div class="container">
     <a href="/gallery/create" class="btn btn-primary mb-3">Tambah Data</a>
+    <h5>note</h5>
+    <ul>
+        <li>Di Homepage max 2 per type</li>
+        <li>di gallery page juga</li>
+    </ul>
+    <small>*Cuma bisa jpg, png | jfif tidak bisa</small>
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped">
             <thead>

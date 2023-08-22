@@ -35,6 +35,9 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('contact.submit');
 
+//gallery
+Route::get('/gallery', [GalleryController::class, 'show']);
+
 
 //profile
 Route::get('/sejarah', [ProfileController::class, 'sejarah']);
