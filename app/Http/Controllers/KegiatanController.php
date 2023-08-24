@@ -12,9 +12,9 @@ class KegiatanController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function Index()
     {
-        $kegiatan=Kegiatan::firstorFail();
+        $kegiatan = Kegiatan::firstorFail();
         $footer = Footer::firstorFail();
         return view('home.kegiatan', compact('footer', 'kegiatan'));
     }
@@ -24,7 +24,7 @@ class KegiatanController extends Controller
      */
     public function show()
     {
-        $kegiatan=Kegiatan::firstorFail();
+        $kegiatan = Kegiatan::firstorFail();
         return view('admin.kegiatan.cmsindex', compact('kegiatan'));
     }
 
@@ -33,7 +33,7 @@ class KegiatanController extends Controller
      */
     public function edit(Kegiatan $kegiatan)
     {
-        $kegiatan=Kegiatan::firstorFail();
+        $kegiatan = Kegiatan::firstorFail();
         return view('admin.kegiatan.cmsedit', compact('kegiatan'));
     }
 
@@ -43,7 +43,18 @@ class KegiatanController extends Controller
      */
     public function update(Request $request, Kegiatan $kegiatan)
     {
-        //
-    }
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
 
+        $kegiatan = Kegiatan::firstorFail();
+
+        $kegiatan->update([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+
+        return redirect('/kegcms')->with('success', 'Data berhasil diubah');
+    }
 }

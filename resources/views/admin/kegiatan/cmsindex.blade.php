@@ -20,7 +20,7 @@
                     <td class="col-md-2">{{ $kegiatan->title }}</td>
                     <td class="col-md-8">{!! $kegiatan->content !!}</td>
                     <td>
-                        {{-- <a href="{{ route('kegiatan.edit') }}" class="btn btn-warning">Edit</a> --}}
+                        <a href="{{ route('kegiatan.edit') }}" class="btn btn-warning">Edit</a>
                     </td>
                 </tr>
             </tbody>
