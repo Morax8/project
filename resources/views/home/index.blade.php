@@ -119,8 +119,8 @@
     <div class="portfolio-section port-col">
         <div class="row">
             <div class="isotopeContainer">
-                <div class="col-md-3 isotopeSelector tm">
-                    @foreach ($gallerytm as $item)
+                @foreach ($gallery as $item)
+                <div class="col-md-3 isotopeSelector {{ $item->type }}">
                     <article class="">
                         <figure>
                             <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
@@ -148,116 +148,10 @@
                             </div>
                         </figure>
                     </article>
-                    @endforeach
                 </div>
-
-
-                <div class="col-md-3 isotopeSelector tip">
-                    @foreach ($gallerytip as $item)
-                    <article class="">
-                        <figure>
-                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <div class="inner-overlay">
-                                    <div class="row margin-0 project-content">
-                                        <div class="col-md-12 info-head">
-                                            <h3>{{ $item->nama }}</h3>
-                                            <h4>{{ $item->type }}</h4>
-                                        </div>
-                                        <div class="col-md-12 info">
-                                            <p>
-                                                {!! $item->text !!}
-                                                <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="{{ asset('images/' . $item->image) }}"><i
-                                                        class="fa fa-search fa-border fa-2x"></i></a>
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </figure>
-                    </article>
-                    @endforeach
-                </div>
-
-
-                <div class="col-md-3 isotopeSelector tp">
-                    @foreach ($gallerytp as $item)
-                    <article class="">
-                        <figure>
-                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <div class="inner-overlay">
-                                    <div class="row margin-0 project-content">
-                                        <div class="col-md-12 info-head">
-                                            <h3>{{ $item->nama }}</h3>
-                                            <h4>{{ $item->type }}</h4>
-                                        </div>
-                                        <div class="col-md-12 info">
-                                            <p>
-                                                {!! $item->text !!}
-                                                <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="{{ asset('images/' . $item->image) }}"><i
-                                                        class="fa fa-search fa-border fa-2x"></i></a>
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </figure>
-                    </article>
-                    @endforeach
-                </div>
-
-
-                <div class="col-md-3 isotopeSelector tsm">
-                    @foreach ($gallerytsm as $item)
-                    <article class="">
-                        <figure>
-                            <img src="{{ asset('images/' . $item->image) }}" alt="{{ $item->nama }}" />
-                            <div class="overlay-background">
-                                <div class="inner"></div>
-                            </div>
-                            <div class="overlay">
-                                <div class="inner-overlay">
-                                    <div class="row margin-0 project-content">
-                                        <div class="col-md-12 info-head">
-                                            <h3>{{ $item->nama }}</h3>
-                                            <h4>{{ $item->type }}</h4>
-                                        </div>
-                                        <div class="col-md-12 info">
-                                            <p>
-                                                {!! $item->text !!}
-                                                <a title="Project Image" class="fancybox-pop fancybox.image"
-                                                    href="{{ asset('images/' . $item->image) }}"><i
-                                                        class="fa fa-search fa-border fa-2x"></i></a>
-
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </figure>
-                    </article>
-                    @endforeach
-                </div>
+                @endforeach
             </div>
         </div>
-    </div>
-    <!-- END Columns Portfolio -->
-
-    <div class="text-center">
-        <button type="button" class="btn btn-primary">
-            VIEW MORE <i class="fa fa-arrow-right"></i>
-        </button>
     </div>
 </section>
 

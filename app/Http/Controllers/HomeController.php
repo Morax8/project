@@ -17,10 +17,7 @@ class HomeController extends Controller
 
         $posts = Post::latest()->paginate(3)->withQueryString(); // Get latest 3 posts
         $sliders = Slider::where('active', true)->get();
-        $gallerytip = Gallery::where('type', 'tip')->where('active', true)->limit(2)->get();
-        $gallerytp = Gallery::where('type', 'tp')->where('active', true)->limit(2)->get();
-        $gallerytm = Gallery::where('type', 'tm')->where('active', true)->limit(2)->get();
-        $gallerytsm = Gallery::where('type', 'tsm')->where('active', true)->limit(2)->get();
+        $gallery = gallery::latest()->paginate(8);
 
         $footer = Footer::firstOrFail(); // Assuming you have only one footer record
         $desc = Description::firstOrFail();
@@ -28,10 +25,7 @@ class HomeController extends Controller
             "title" => "Home - SMK Strada Jakarta" . $title,
             "posts" => $posts,
             "sliders" => $sliders,
-            "gallerytip" => $gallerytip,
-            "gallerytp" => $gallerytp,
-            "gallerytm" => $gallerytm,
-            "gallerytsm" => $gallerytsm,
+            "gallery" => $gallery,
             "footer" => $footer,
             "desc" => $desc,
 
