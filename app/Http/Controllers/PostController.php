@@ -37,7 +37,12 @@ class PostController extends Controller
         ]);
     }
 
+    public function cmsIndex()
+    {
+        $posts = Post::paginate(10); // Fetch all posts from the database
 
+        return view('admin.news.index', compact('posts'));
+    }
 
     public function create()
     {
@@ -61,24 +66,34 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
+            'image' => 'required|file|image',
             'excerpt' => 'required',
             'body' => 'required',
-            // Add other validation rules as needed
         ]);
 
-        // Create a new Post instance and fill it with the request data
-        $post = new Post([
+
+
+        $input = [
             'title' => $request->input('title'),
-            'slug' => Str::slug($request->input('title')),
+            'slug' => Str::slug($request->input('title'), '-'),
             'excerpt' => $request->input('excerpt'),
             'body' => $request->input('body'),
-        ]);
+            'active' => $request->has('active'),
+        ];
 
-        // Save the post to the database
-        $post->save();
+        if ($image = $request->file('image')) {
+            $desiredFileName = $request->input('title');
+            $imageName = $desiredFileName . now()->format('Y-m-d') . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images');
+            $image->move($destinationPath, $imageName);
+            $input['image'] = $imageName; // Add this line to set the 'image' attribute
+        }
+
+        Post::create($input);
 
         return redirect('/postscms');
     }
+
 
     // Update the information of an existing post in the database
     public function update(Request $request, Post $post)
@@ -86,18 +101,29 @@ class PostController extends Controller
 
         $request->validate([
             'title' => 'required|max:255',
+            'image' => 'required|file|image',
             'excerpt' => 'required',
             'body' => 'required',
         ]);
 
-        $slug = Str::slug($request->input('title'), '-');
+        $post->title = $request->input('title');
+        $post->excerpt = $request->input('excerpt');
+        $post->body = $request->input('body');
+        $post->slug = Str::slug($request->input('title'), '-');
 
-        $post->update([
-            'title' => $request->input('title'),
-            'slug' => $slug,
-            'excerpt' => $request->input('excerpt'),
-            'body' => $request->input('body'),
-        ]);
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = $post->title . now()->format('Y-m-d') . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images');
+            $image->move($destinationPath, $imageName);
+
+            if ($post->image && file_exists(public_path('images/' . $post->image))) {
+                unlink(public_path('images/' . $post->image));
+            }
+            $post->image = $imageName;
+        }
+
+        $post->save();
 
         return redirect('/postscms');
     }
@@ -111,12 +137,5 @@ class PostController extends Controller
         $post->delete();
 
         return redirect('/postscms');
-    }
-
-    public function cmsIndex()
-    {
-        $posts = Post::latest()->paginate(10); // Fetch all posts from the database
-
-        return view('admin.news.index', compact('posts'));
     }
 }

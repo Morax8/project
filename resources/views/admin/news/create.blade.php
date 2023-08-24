@@ -7,7 +7,7 @@
     <a href="/postscms" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('postscms.store') }}" method="POST">
+            <form action="{{ route('postscms.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <input type="hidden" class="form-control" name="id" placeholder="ID">
@@ -19,13 +19,23 @@
                     <label for="">Judul</label>
                     <input type="text" class="form-control" name="title" placeholder="Judul">
                 </div>
-                @error('image')
+                @error('excerpt')
                 <small style="color: red">{{ $message }}</small>
                 @enderror
                 <div class="form-group">
                     <label for="">Excerpt</label>
                     <input type="text" class="form-control" name="excerpt" placeholder="excerpt">
                 </div>
+                @error('image')
+                <small style="color: red">{{ $message }}</small>
+                @enderror
+                <div class="form-group">
+                    <label for="">Image</label>
+                    <input type="file" class="form-control" name="image">
+                </div>
+                @error('body')
+                <small style="color: red">{{ $message }}</small>
+                @enderror
                 <div class="form-group">
                     <label for="">Body</label>
                     <textarea class="form-control" rows="20" name="body" placeholder="Body"></textarea>
