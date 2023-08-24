@@ -40,7 +40,7 @@ Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('con
 Route::get('/gallery', [GalleryController::class, 'show']);
 
 //kegiatan
-Route::get('/kegiatan',[KegiatanController::class, 'index']);
+Route::get('/keg', [KegiatanController::class, 'Index']);
 
 
 //profile
@@ -165,4 +165,7 @@ Route::get('/desc', [DescriptionController::class, 'descIndex'])->name('desc.ind
 Route::get('/desc/edit/', [DescriptionController::class, 'edit'])->name('desc.edit');
 Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc.update');
 
-Route::get('/kegcms',[kegiatanController::class, 'show'])->name('kegcms.show');
+//kegiatanCMS
+Route::get('/kegcms', [kegiatanController::class, 'show'])->name('kegiatan.show');
+Route::get('/kegcms/edit/', [kegiatanController::class, 'edit'])->name('kegiatan.edit');
+Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegiatan.update');
