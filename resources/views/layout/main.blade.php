@@ -63,6 +63,8 @@
 <body>
   @include('partials.navbar')
   @yield('container')
+  <br>
+  <br>
 
   <style>
     .custom-container {
