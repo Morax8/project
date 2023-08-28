@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container">
+    <a href="/sejcms" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
             <form action="{{ route('profile.update', ['type' => 'sej', 'id' => $sejprof->id]) }}" method="POST">
@@ -30,7 +31,6 @@
     </div>
 </div>
 
-// Function to display the Swal toast message
 <script>
     // Function to display the Swal toast message
     function showSwalToast(message) {

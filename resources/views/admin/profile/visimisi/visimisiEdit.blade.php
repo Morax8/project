@@ -4,6 +4,7 @@
 @section('content')
 
 <div class="container">
+    <a href="/vmcms" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
             <form action="{{ route('profile.update', ['type' => 'vm', 'id' => $vmprof->id]) }}" method="POST">

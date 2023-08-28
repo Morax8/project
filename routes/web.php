@@ -1,6 +1,6 @@
 <?php
 
-use App\Policies\GalleryPolicy;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
@@ -16,6 +16,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\EskulController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,11 @@ use App\Http\Controllers\DescriptionController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+//test frontend
+Route::get('/test', function () {
+    return view('welcome');
+});
 //Page UTAMA
 Route::get('/', [HomeController::class, 'index',]);
 Route::get('/contact', function () {
@@ -41,6 +47,8 @@ Route::get('/gallery', [GalleryController::class, 'show']);
 
 //kegiatan
 Route::get('/keg', [KegiatanController::class, 'Index']);
+//eskul
+Route::get('/eskul', [eskulController::class, 'Index']);
 
 
 //profile

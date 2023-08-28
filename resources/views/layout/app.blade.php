@@ -282,6 +282,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </li>
                             </ul>
                         </li>
+                        <!-- Eskul Dropdown -->
+                        <li
+                            class="nav-item has-treeview {{ Request::is('futsalcms', 'mmcms', 'paskibcms', 'pramukacms') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-snowboarding"></i>
+                                <p>
+                                    Ekstrakurikuler
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/futsalcms"
+                                        class="nav-link {{ Request::is('futsalcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Futsal</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/mmcms" class="nav-link {{ Request::is('mmcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Multimedia</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/paskibcms"
+                                        class="nav-link {{ Request::is('paskibcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Paskibraka</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/pramukacms"
+                                        class="nav-link {{ Request::is('pramukacms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pramuka</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <!-- Log Out -->
                         <li class="nav-item">
