@@ -736,6 +736,10 @@ a:focus {
     color: #ff5800;
 }
 
+.dropdown-submenu:hover .dropdown-menu {
+    display: block;
+}
+
 /* 05 - Headers
 /* ------------------------------------------ */
 

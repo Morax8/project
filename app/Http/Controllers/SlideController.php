@@ -55,16 +55,6 @@ class SlideController extends Controller
         return redirect('/sliders')->with('success', 'Data berhasil ditambahkan');
     }
 
-
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(Slider $slider)
-    {
-        //
-    }
-
     /**
      * Show the form for editing the specified resource.
      */

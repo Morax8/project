@@ -45,7 +45,8 @@
   <!-- For brand icons -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/brands.min.css" rel="stylesheet">
 
-
+  {{-- AOS --}}
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <!-- maps -->
   <script src="https://www.bing.com/api/maps/mapcontrol?callback=initMap" async defer></script>
@@ -63,6 +64,8 @@
 <body>
   @include('partials.navbar')
   @yield('container')
+  <br>
+  <br>
 
   <style>
     .custom-container {
@@ -95,6 +98,13 @@
   <link rel="stylesheet" type="text/css" href="{{ asset('Frontend/extensions/fancybox/jquery.fancybox.css') }}"
     media="screen" />
   <script type="text/javascript" src="{{ asset('Frontend/extensions/fancybox/jquery.fancybox-media.js') }}"></script>
+
+  {{-- AOS --}}
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    AOS.init();
+  </script>
 
   <!-- Initiate Fancybox/Lightbox for Videos -->
   <script type="text/javascript">

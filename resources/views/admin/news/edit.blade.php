@@ -7,7 +7,7 @@
     <a href="/postscms" class="btn btn-primary mb-3">Kembali</a>
     <div class="row">
         <div class="col-md-12">
-            <form action="{{ route('postscms.update', $post->id) }}" method="POST">
+            <form action="{{ route('postscms.update', $post->id) }}" method="POST" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div class=" form-group">
@@ -27,6 +27,14 @@
                     <label for="">Excerpt</label>
                     <input type="text" class="form-control" name="excerpt" placeholder="excerpt"
                         value="{{ $post->excerpt }}">
+                </div>
+                @error('image')
+                <small style="color: red">{{ $message }}</small>
+                @enderror
+                <div class="form-group">
+                    <img src="{{ asset('images/'.$post->image) }}" alt="" class="img-fluid">
+                    <label for="">Image</label>
+                    <input type="file" class="form-control" name="image">
                 </div>
                 @error('body')
                 <small style="color: red">{{ $message }}</small>
@@ -73,12 +81,10 @@
         // Submit the form after a short delay
         setTimeout(() => {
             this.submit();
-        }, 2000); // delay before form submission
+        }, 1000); // delay before form submission
 
         // Redirect to the desired page after another short delay
-        setTimeout(() => {
-            window.location.href = "{{ route('postscms.cmsIndex') }}"; // Use the named route
-        }, 2500); // ds delay before redirection
+        setTimeout(() => 2500); // ds delay before redirection
     });
 </script>
 

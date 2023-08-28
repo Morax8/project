@@ -34,6 +34,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                        <i class="fas fa-expand-arrows-alt"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                        <i class="fas fa-th-large"></i>
+                    </a>
+                </li>
+            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -266,6 +278,46 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         class="nav-link {{ Request::is('perpuscms') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Perpustakaan</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- Eskul Dropdown -->
+                        <li
+                            class="nav-item has-treeview {{ Request::is('futsalcms', 'mmcms', 'paskibcms', 'pramukacms') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-snowboarding"></i>
+                                <p>
+                                    Ekstrakurikuler
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/futsalcms"
+                                        class="nav-link {{ Request::is('futsalcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Futsal</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/mmcms" class="nav-link {{ Request::is('mmcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Multimedia</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/paskibcms"
+                                        class="nav-link {{ Request::is('paskibcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Paskibraka</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/pramukacms"
+                                        class="nav-link {{ Request::is('pramukacms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Pramuka</p>
                                     </a>
                                 </li>
                             </ul>
