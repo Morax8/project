@@ -48,6 +48,7 @@ class FooterController extends Controller
             'email' => $request->email,
             'about_content' => $request->about_content,
             // Add more fields as needed
+
         ]);
 
         return redirect('/footercms')->with('success', 'Footer content updated successfully.');

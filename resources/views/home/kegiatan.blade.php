@@ -9,6 +9,7 @@
         {!! $kegiatan->content !!}
      </p>
     </div>
+
     <style>
         p,h1{
             font-size: 18px;
