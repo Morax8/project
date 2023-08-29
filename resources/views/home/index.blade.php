@@ -170,7 +170,7 @@
             @foreach ($posts as $post)
             <div class="col-md-4">
                 <article>
-                    <img class="img-thumbnail" src="https://source.unsplash.com/690x527?berita-sekolah" alt="" />
+                    <img class="img-thumbnail" src="{{ asset('images/' . $post->image) }}" alt="" />
                     <h2>{{ $post->title }}</h2>
                     <hr class="title-underline" />
                     <p>
