@@ -1,8 +1,4 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
 
 <head>
@@ -19,7 +15,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('LTE/dist/css/adminlte.min.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tinymce@5.10.2/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/rwy4a06oagig7ftr5exn66h4njzdfi07sa6nyvo1nkazrdw8/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
 
 
 </head>
@@ -163,7 +160,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <li
                             class="nav-item has-treeview {{ Request::is('tipcms', 'tmcms', 'tsmcms', 'tpcms') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-edit"></i>
+                                <i class="nav-icon fas fa-briefcase"></i>
                                 <p>
                                     Jurusan
                                     <i class="right fas fa-angle-left"></i>
@@ -198,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </li>
 
                         <li
-                            class="nav-item has-treeview {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => ['tip', 'tm', 'tsm', 'tp']]) ? 'menu-open' : '' }} --}} menu-open">
+                            class="nav-item has-treeview {{-- {{ request()->routeIs('gallery.cmsIndex', ['type' => ['tip', 'tm', 'tsm', 'tp']]) ? 'menu-open' : '' }} --}} ">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-images"></i>
                                 <p>
@@ -242,7 +239,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             class="nav-item has-treeview {{ (Request::is('fascms', 'sarcms', 'pracms', 'labcms', 'perpuscms') || Request::is('fas/edit/*', 'sar/edit/*', 'pra/edit/*', 'per/edit/*', 'lab/edit/*')) ? 'menu-open' : '' }}">
                             <a href="#"
                                 class="nav-link {{ Route::is('fas.edit', 'sarana.edit', 'pras.edit', 'perpus.edit', 'lab.edit') ? 'active' : '' }}">
-                                <i class="nav-icon fas fa-edit"></i>
+                                <i class="nav-icon fas fa-warehouse"></i>
                                 <p>
                                     Fasilitas
                                     <i class="right fas fa-angle-left"></i>
