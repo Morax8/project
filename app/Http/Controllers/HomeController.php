@@ -16,9 +16,8 @@ class HomeController extends Controller
         $title = '';
 
         $posts = Post::latest()->paginate(3)->withQueryString(); // Get latest 3 posts
-        $sliders = Slider::where('active', true)->get();
+        $sliders = Slider::where('active', true)->take(4)->get();
         $gallery = gallery::latest()->paginate(8);
-
         $footer = Footer::firstOrFail(); // Assuming you have only one footer record
         $desc = Description::firstOrFail();
         return view('home.index', [
