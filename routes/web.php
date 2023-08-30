@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EskulController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
@@ -16,7 +17,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DescriptionController;
-use App\Http\Controllers\EskulController;
+
 
 /*
 |--------------------------------------------------------------------------
