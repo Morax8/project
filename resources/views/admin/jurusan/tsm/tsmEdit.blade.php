@@ -19,7 +19,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>
-                    <textarea class="form-control" rows="30" name="content"
+                    <textarea id="file-picker" class="form-control" rows="30" name="content"
                         placeholder="Content">{{ $tsmjurusan->content }}</textarea>
                 </div>
                 <div class="form-group">
