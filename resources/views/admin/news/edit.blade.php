@@ -41,7 +41,8 @@
                 @enderror
                 <div class="form-group">
                     <label for="">Body</label>
-                    <textarea class="form-control" rows="20" name="body" placeholder="Body">{{ $post->body }}</textarea>
+                    <textarea id="file-picker" class="form-control" rows="20" name="body"
+                        placeholder="Body">{{ $post->body }}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block Create">Submit</button>
