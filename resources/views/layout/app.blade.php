@@ -281,7 +281,7 @@
                         </li>
                         <!-- Eskul Dropdown -->
                         <li
-                            class="nav-item has-treeview {{ Request::is('futsalcms', 'mmcms', 'paskibcms', 'pramukacms') ? 'menu-open' : '' }}">
+                            class="nav-item has-treeview {{ Request::is('futsalcms', 'mmcms', 'paskibcms', 'pramukacms', 'eksulcms') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-snowboarding"></i>
                                 <p>
@@ -290,6 +290,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/eskulcms" class="nav-link {{ Request::is('eskulcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Eskul mainpage</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="/futsalcms"
                                         class="nav-link {{ Request::is('futsalcms') ? 'active' : '' }}">

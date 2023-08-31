@@ -178,3 +178,9 @@ Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc
 Route::get('/kegcms', [kegiatanController::class, 'show'])->name('kegiatan.show');
 Route::get('/kegcms/edit/', [kegiatanController::class, 'edit'])->name('kegiatan.edit');
 Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegiatan.update');
+
+
+//eskul cms
+Route::get('/eskulcms', [EskulController::class, 'show'])->name('eskul.show');
+Route::get('/eskulcms/edit/', [EskulController::class, 'edit'])->name('eskul.edit');
+Route::put('/eskulcms/update', [EskulController::class, 'update'])->name('eskul.update');

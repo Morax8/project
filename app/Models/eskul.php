@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class eskul extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['title', 'content'];
 }

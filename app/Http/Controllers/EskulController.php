@@ -14,15 +14,15 @@ class EskulController extends Controller
      */
     public function index()
     {
-        // $eskul = eskul::all();
-        // return view('eskul.index', compact('eskul'));
         $footer = Footer::firstorFail();
-        return view('home.eskul', compact('footer'));
+        $eskul = eskul::firstorFail();
+        return view('home.eskul', compact('footer', 'eskul'));
     }
 
     public function show(eskul $eskul)
     {
-        //
+        $eskul = eskul::firstorFail();
+        return view('admin.eskul.mainpage.mainIndex', compact('eskul'));
     }
 
     /**
@@ -30,7 +30,8 @@ class EskulController extends Controller
      */
     public function edit(eskul $eskul)
     {
-        //
+        $eskul = eskul::firstorFail();
+        return view('admin.eskul.mainpage.mainEdit', compact('eskul'));
     }
 
     /**
@@ -38,7 +39,10 @@ class EskulController extends Controller
      */
     public function update(Request $request, eskul $eskul)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+        ]);
     }
 
     /**
