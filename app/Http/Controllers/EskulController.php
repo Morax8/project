@@ -37,12 +37,25 @@ class EskulController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, eskul $eskul)
+    public function update(Request $request, eskul $eskul, $type, $id)
     {
         $request->validate([
             'title' => 'required',
             'content' => 'required',
         ]);
+
+        $content = eskul::find($id);
+        if (!$content) {
+            return redirect()->back();
+        }
+
+
+        if ($type == 'main' || $type == 'futsal') {
+            $content->update([
+                'title' => $request->title,
+                'content' => $request->content,
+            ]);
+        }
     }
 
     /**
