@@ -13,7 +13,6 @@
     {!! $item->content !!}
     @endforeach
 </div>
-@include('partials.footer')
 <style>
     p,
     li {
