@@ -6,9 +6,9 @@
     <header>
         @foreach ($eskul as $item)
         <h2>{{ $item->title }}</h2>
-        {!! $item->content !!}
-        @endforeach
     </header>
+    {!! $item->content !!}
+    @endforeach
 </div>
 
 <style>

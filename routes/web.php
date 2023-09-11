@@ -51,7 +51,7 @@ Route::get('/keg', [KegiatanController::class, 'Index']);
 //eskul
 Route::get('/eskul', [eskulController::class, 'Index']);
 Route::get('/futsal', [eskulController::class, 'futsal']);
-Route::get('/multimedia', [eskulController::class, 'multimedia']);
+Route::get('/mm', [eskulController::class, 'multimedia']);
 Route::get('/band', [eskulController::class, 'band']);
 Route::get('/padus', [eskulController::class, 'padus']);
 Route::get('/badmin', [eskulController::class, 'badmin']);
