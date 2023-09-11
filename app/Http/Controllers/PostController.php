@@ -30,10 +30,12 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $footer = Footer::firstorFail();
         return view('home.post', [
             "title" => "Single News",
             "active" => "News",
-            "post" => $post
+            "post" => $post,
+            "footer" => $footer,
         ]);
     }
 
