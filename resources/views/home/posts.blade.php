@@ -70,4 +70,10 @@
     </div>
 </div>
 
+<style>
+    h2 {
+        font-size: 25px;
+    }
+</style>
+
 @endsection
