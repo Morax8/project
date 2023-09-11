@@ -50,6 +50,14 @@ Route::get('/gallery', [GalleryController::class, 'show']);
 Route::get('/keg', [KegiatanController::class, 'Index']);
 //eskul
 Route::get('/eskul', [eskulController::class, 'Index']);
+Route::get('/futsal', [eskulController::class, 'futsal']);
+Route::get('/multimedia', [eskulController::class, 'multimedia']);
+Route::get('/band', [eskulController::class, 'band']);
+Route::get('/padus', [eskulController::class, 'padus']);
+Route::get('/badmin', [eskulController::class, 'badmin']);
+Route::get('/paskib', [eskulController::class, 'paskib']);
+Route::get('/pramuka', [eskulController::class, 'pramuka']);
+Route::get('/tenismeja', [eskulController::class, 'tenismeja']);
 
 
 //profile
@@ -183,4 +191,4 @@ Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegia
 //eskul cms
 Route::get('/eskulcms', [EskulController::class, 'show'])->name('eskul.show');
 Route::get('/eskulcms/edit/', [EskulController::class, 'edit'])->name('eskul.edit');
-Route::put('/eskulcms/update', [EskulController::class, 'update'])->name('eskul.update');
+Route::put('/eskulcms/update/{type}/{id}', [EskulController::class, 'update'])->name('eskul.update');
