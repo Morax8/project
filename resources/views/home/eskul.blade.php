@@ -8,9 +8,6 @@
     </header>
     {!! $eskul->content !!}
 </div>
-
-
-
 <style>
     p,
     li,

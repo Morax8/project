@@ -2,13 +2,12 @@
 @section('title', 'Eskul (mainpage) Edit')
 
 @section('content')
-{{-- , ['type' => 'perpus', 'id' => $eskul->id] --}}
 
 <div class="container">
     <div class="row">
         <a href="/eskulcms" class="btn btn-primary">Kembali</a>
         <div class="col-md-12">
-            <form action="{{ route('eskul.update') }}" method="POST">
+            <form action="{{ route('eskul.update', ['type' => 'eskul', 'id' => $eskul->id]) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
