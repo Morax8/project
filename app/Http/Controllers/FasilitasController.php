@@ -30,107 +30,57 @@ class FasilitasController extends Controller
         return view('admin.fasilitas.fas.fasEdit', compact('fasilitas'));
     }
 
-    //sarana
-
-    public function sarcms()
+    public function sarpra()
     {
-        $sarana = Fasilitas::where('type', 'sar')->get();
-        return view('admin.fasilitas.sarana.saranaIndex', compact('sarana'));
-    }
-
-    public function saranaIndex()
-    {
-        $sarana = Fasilitas::where('type', 'sar')->get();
+        $sarpra = Fasilitas::where('type', 'sarpra')->get();
         $footer = Footer::firstorFail();
-        return view('fasilitas.sarana', compact('sarana', 'footer'));
+        return view('fasilitas.sarpra', compact('sarpra', 'footer'));
     }
 
-    public function saranaEdit($id)
+    public function sarpracms()
     {
-        $sarana = Fasilitas::findOrFail($id);
-        return view('admin.fasilitas.sarana.saranaEdit', compact('sarana'));
+        $sarpra = Fasilitas::where('type', 'sar')->get();
+        return view('admin.fasilitas.sarpra.sarpraIndex', compact('sarpra'));
     }
 
-    //prasarana
-    public function prascms()
+    public function sarpraEdit($id)
     {
-        $prasarana = Fasilitas::where('type', 'pras')->get();
-        return view('admin.fasilitas.prasarana.prasIndex', compact('prasarana'));
+        $sarpra = Fasilitas::findOrFail($id);
+        return view('admin.fasilitas.sarpra.sarpraEdit', compact('sarpra'));
     }
 
-    public function prasaranaIndex()
-    {
-        $prasarana = Fasilitas::where('type', 'pras')->get();
-        $footer = Footer::firstorFail();
-        return view('fasilitas.prasarana', compact('prasarana', 'footer'));
-    }
-
-    public function prasaranaEdit($id)
-    {
-        $prasarana = Fasilitas::findOrFail($id);
-        return view('admin.fasilitas.prasarana.prasEdit', compact('prasarana'));
-    }
-
-
-    //lab
-    public function labcms()
-    {
-        $lab = Fasilitas::where('type', 'lab')->get();
-        return view('admin.fasilitas.lab.labIndex', compact('lab'));
-    }
-
-    public function labIndex()
-    {
-        $lab = Fasilitas::where('type', 'lab')->get();
-        $footer = Footer::firstorFail();
-        return view('fasilitas.lab', compact('lab', 'footer'));
-    }
-
-    public function labEdit($id)
-    {
-        $lab = Fasilitas::findOrFail($id);
-        return view('admin.fasilitas.lab.labEdit', compact('lab'));
-    }
-
-    //perpus
-    public function perpuscms()
-    {
-        $perpus = Fasilitas::where('type', 'perpus')->get();
-        return view('admin.fasilitas.perpus.perpusIndex', compact('perpus'));
-    }
-
-    public function perpusIndex()
-    {
-        $perpus = Fasilitas::where('type', 'perpus')->get();
-        $footer = Footer::firstorFail();
-        return view('fasilitas.perpus', compact('perpus', 'footer'));
-    }
-
-    public function perpusEdit($id)
-    {
-        $perpus = Fasilitas::findOrFail($id);
-        return view('admin.fasilitas.perpus.perpusEdit', compact('perpus'));
-    }
 
     public function update(Request $request, $type, $id)
     {
         // Validate the form data
         $request->validate([
             'title' => 'required|max:255',
+            'image' => 'required',
             'content' => 'required',
+            'kondisi' => 'required',
         ]);
 
         // Find the content by its ID
         $content = Fasilitas::find($id);
         if (!$content) {
-            return redirect('/')->with('error', 'Content not found.');
+            return redirect('/dashboard')->with('error', 'Content not found.');
+        }
+
+        if ($image = $request->file('image')) {
+            $desiredFileName = $request->input('title');
+            $imageName = $desiredFileName . now()->format('Y-m-d') . '.' . $image->getClientOriginalExtension();
+            $destinationPath = public_path('images');
+            $image->move($destinationPath, $imageName);
+            // Add this line to set the 'image' attribute
         }
 
         // Update the content based on the type
-        if ($type === 'sar' || $type === 'pras' || $type === 'fas' || $type === 'lab' || $type === 'perpus') {
+        if ($type === 'sarpra'  || $type === 'fas') {
             $content->update([
                 'title' => $request->title,
+                'image' => $imageName,
                 'content' => $request->content,
+                'kondisi' => $request->kondisi,
             ]);
             return redirect("/{$type}cms");
         }

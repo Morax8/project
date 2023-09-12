@@ -76,9 +76,7 @@ Route::get('/tp', [JurusanController::class, 'indexTp']);
 //fasilitas
 Route::get('/fasilitas', [FasilitasController::class, 'fasIndex']);
 Route::get('/sarana', [FasilitasController::class, 'saranaIndex']);
-Route::get('/prasarana', [FasilitasController::class, 'prasaranaIndex']);
-Route::get('/lab', [FasilitasController::class, 'labIndex']);
-Route::get('/perpus', [FasilitasController::class, 'perpusIndex']);
+Route::get('/sarpra', [FasilitasController::class, 'sarpra']);
 
 //news
 Route::get('/news', [PostController::class, 'index',]);

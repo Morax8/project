@@ -30,4 +30,12 @@
     </div>
 </div>
 
+<div class="d-flex justify-content-center">
+    <figure class="aligncenter size-large">
+        <img decoding="async" width="600" height="448"
+            src="https://www.stmstrada.sch.id/wp-content/uploads/2021/05/WhatsApp-Image-2021-05-24-at-11.46.42-600x448.jpeg"
+            alt="" class="wp-image-691" />
+    </figure>
+</div>
+
 @endsection

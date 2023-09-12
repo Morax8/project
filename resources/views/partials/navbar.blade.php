@@ -27,7 +27,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jurusan<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu jurus">
                         <li class="dropdown-header">Program Keahlian</li>
                         <li><a href="/tip">Teknik Informatika Pemograman</a></li>
                         <li><a href="/tm">Teknik Mekatronika</a></li>
@@ -40,10 +40,7 @@
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Fasilitas SMK STRADA</li>
                         <li><a href="/fasilitas">Fasilitas</a></li>
-                        <li><a href="/sarana">Sarana</a></li>
-                        <li><a href="/prasarana">Prasarana</a></li>
-                        <li><a href="/perpus">Perpustakaan</a></li>
-                        <li><a href="/lab">Laboratorium</a></li>
+                        <li><a href="/sarpra">Sarana & Prasarana</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

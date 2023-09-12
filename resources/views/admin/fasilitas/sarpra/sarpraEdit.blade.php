@@ -1,27 +1,27 @@
 @extends(' layout.app')
-@section('title', 'Prasarana Edit')
+@section('title', 'SarPra Edit')
 
 @section('content')
 
 <div class="container">
     <div class="row">
-        <a href="/prascms" class="btn btn-primary">Kembali</a>
+        <a href="/sarcms" class="btn btn-primary">Kembali</a>
         <div class="col-md-12">
-            <form action="{{ route('fasilitas.update', ['type' => 'pras', 'id' => $prasarana->id]) }}" method="POST">
+            <form action="{{ route('fasilitas.update', ['type' => 'sarpra', 'id' => $sarpra->id]) }}" method="POST">
                 @method('PUT')
                 @csrf
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="id" value="{{ $prasarana->id }}">
+                    <input type="hidden" class="form-control" name="id" value="{{ $sarpra->id }}">
                 </div>
                 <div class="form-group">
                     <label for="">title</label>
                     <input type="text" class="form-control" name="title" placeholder="title"
-                        value="{{ $prasarana->title }}">
+                        value="{{ $sarpra->title }}">
                 </div>
                 <div class="form-group">
                     <label for="">Content</label>
                     <textarea id="file-picker" class="form-control" rows="30" name="content"
-                        placeholder="Content">{{ $prasarana->content }}</textarea>
+                        placeholder="Content">{{ $sarpra->content }}</textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block Create">Submit</button>
