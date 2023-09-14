@@ -30,10 +30,11 @@
   <script src="{{ asset('Frontend/bootstrap/js/ie-emulation-modes-warning.js') }}"></script> --}}
 
   <!-- Google Fonts - Change if needed -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,400,700,300,600" rel="stylesheet"
-    type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat&family=Oxygen:wght@300;400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
 
 
   <!-- For solid icons -->

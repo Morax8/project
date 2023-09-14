@@ -9,7 +9,27 @@ Primary Footer							#222
 Secondary Footer:						#111
 
 */
+body,
+html {
+    font-family: "Montserrat", sans-serif;
+}
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Source Sans 3", sans-serif;
+}
+
+p {
+    font-family: "Montserrat", sans-serif;
+}
+
+.title-light {
+    font-family: "Montserrat", sans-serif;
+}
 body,
 html {
     color: #7a7c82;
