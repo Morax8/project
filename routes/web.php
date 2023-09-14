@@ -17,7 +17,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DescriptionController;
-
+use App\Http\Controllers\PpdbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +42,9 @@ Route::get('/contact', function () {
     ]);
 });
 Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('contact.submit');
+
+
+Route::get('/ppdb', [PpdbController::class, 'index']);
 
 //gallery
 Route::get('/gallery', [GalleryController::class, 'show']);

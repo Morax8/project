@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Elsa, a multipurpose Template from Andreas Lautenschlager" />
-  <meta name="author" content="Andreas Lautenschlager - www.lautenschlager.de" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Zian" />
 
   <title>
     @yield('title') - SMK STRADA JAKARTA
