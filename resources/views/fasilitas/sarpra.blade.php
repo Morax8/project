@@ -1,37 +1,27 @@
 @extends('layout.main')
 @section('title', 'Sarana & Prasarana')
 @section('container')
-
-<div class="table-responsive">
-    <table class="table table-bordered table-hover table-striped">
-
-        <th>Nama</th>
-        <th>Foto</th>
-        <th>Deskripsi</th>
-        <th>Kondisi</th>
+<div class="container">
+    <ul>
         @foreach ($sarpra as $item)
-        <tr>
-            <td class="col-md-1">{{ $item->title }}</td>
-            <td class="col-md-4"><img src="{{ asset('images/'.$item->image) }}" alt="" style="width: 500px">
-            </td>
-            <td class="col-md-5">{!! $item->content !!}</td>
-            <td class="col-md-1">{{ $item->kondisi }}</td>
+        <li>
+            <strong>{{ $item->title }}<br></strong>
+            <img src="{{ asset('images/'.$item->image) }}" alt="" style="width: 500px"><br>
+            {!! $item->content !!}
+        </li>
 
-        </tr>
         @endforeach
-    </table>
+    </ul>
 </div>
 
-
 <style>
-    table {
-        margin: 1.5vh 1.5vh 1.5vh 1.5vh;
+    p,
+    li {
+        font-size: 15px;
     }
 
-    li,
-    p,
-    ul {
-        font-size: 15px;
+    strong {
+        font-size: 20px;
     }
 </style>
 @endsection
