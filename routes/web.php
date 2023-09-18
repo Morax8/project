@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PpdbController;
 use App\Http\Controllers\EskulController;
 use App\Http\Controllers\SlideController;
 use App\Http\Controllers\FooterController;
@@ -17,7 +19,6 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DescriptionController;
-use App\Http\Controllers\PpdbController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,12 +31,17 @@ use App\Http\Controllers\PpdbController;
 |
 */
 
+Auth::routes();
+
+
+
 //test frontend
 Route::get('/test', function () {
     return view('welcome');
 });
 //Page UTAMA
-Route::get('/', [HomeController::class, 'index',]);
+Route::get('/home', [HomeController::class, 'index']);
+
 Route::get('/contact', function () {
     return view('home.contact', [
         "title" => "Contact"
@@ -43,9 +49,16 @@ Route::get('/contact', function () {
 });
 Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('contact.submit');
 
-
+//PPDB
 Route::get('/ppdb', [PpdbController::class, 'index']);
 
+Route::get('/ppdb-succes', [PpdbController::class, 'succes']);
+Route::resource('ppdb', PpdbController::class);
+Route::post('/ppdb/store', 'App\Http\Controllers\PpdbController@store')->name('ppdb.store');
+
+Route::middleware(['auth', 'CheckRole:manajemen'])->group(function () {
+    Route::get('/datappdb', [PpdbController::class, 'view']);
+});
 //gallery
 Route::get('/gallery', [GalleryController::class, 'show']);
 
@@ -91,10 +104,13 @@ Route::get('/kerjasama', [KerjasamaController::class, 'Index']);
 
 
 //auth
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login', [AuthController::class, 'authenticated']);
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'login'])->name('login');
+    Route::post('/login', [AuthController::class, 'authenticated']);
+});
 
+Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 
 
@@ -193,3 +209,7 @@ Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegia
 Route::get('/eskulcms', [EskulController::class, 'show'])->name('eskul.show');
 Route::get('/eskulcms/edit/', [EskulController::class, 'edit'])->name('eskul.edit');
 Route::put('/eskulcms/update/{type}/{id}', [EskulController::class, 'update'])->name('eskul.update');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
