@@ -12,6 +12,7 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+
     public function authenticated(Request $request)
     {
         $request->validate([
@@ -19,14 +20,17 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
+
+
         $credentials = $request->only('email', 'password');
+
+
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect('/dashboard');
         }
-
         return back()->withErrors([
             'loginError' => 'Email atau password salah.',
         ]);
@@ -36,6 +40,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('/login');
+        return redirect('/home');
     }
 }
