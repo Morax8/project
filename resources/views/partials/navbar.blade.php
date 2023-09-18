@@ -8,13 +8,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/"><img class="logo" src="{{ asset('Frontend/img/strada.png') }}" style="height: 50px"
+            <a href="/home"><img class="logo" src="{{ asset('Frontend/img/strada.png') }}" style="height: 50px"
                     alt="Logo" /> <strong>SMK STRADA JAKARTA</strong> </a>
         </div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown active">
-                    <a href="/">Home</a>
+                    <a href="/home">Home</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
@@ -28,7 +28,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jurusan<b class="caret"></b></a>
                     <ul class="dropdown-menu jurus">
-                        <li class="dropdown-header">Program Keahlian</li>
+                        <li class="dropdown-header">Program Keahlian </li>
                         <li><a href="/tip">Teknik Informatika Pemograman</a></li>
                         <li><a href="/tm">Teknik Mekatronika</a></li>
                         <li><a href="/tp">Teknik Pemesinan</a></li>

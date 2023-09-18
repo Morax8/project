@@ -3,7 +3,7 @@
 @section('container')
 
 <div class="container customcon">
-    <form action="" method="POST">
+    <form action="{{ route('ppdb.store') }}" method="POST" class="customform">
         @csrf
         <div class="col-md-7">
             <div class="panel panel-default">
@@ -33,6 +33,9 @@
                         <option value="Teknik Mesin">Teknik Mesin</option>
                         <option value="Teknik Bisnis dan Sepeda Motor">Teknik Bisnis dan Sepeda Motor</option>
                     </select>
+                    @error('jurusan')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -65,6 +68,9 @@
                             Teman / Kerabat
                         </label>
                     </div>
+                    @error('mengetahuippdb')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -76,13 +82,28 @@
                         kelas
                         (Cth : Josua Natanael, Kelas : XI TM 2) <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="namateman" id="namateman" placeholder="Your answer here">
+                        <input type="text" name="kerabat" id="kerabat" placeholder="Your answer here">
                     </div>
-
+                    @error('kerabat')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
-
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Nama Lengkap (Sesuai dengan Akta Lahir) tulis hurup Kapital (Cth :
+                        JOSUA NATANAEL) <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="text" name="nama" id="nama" placeholder="Your answer here">
+                    </div>
+                    @error('nama')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
+                </div>
+            </div>
+        </div>
         <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -91,7 +112,9 @@
                     <div class="input-container">
                         <input type="text" name="nik" id="nik" placeholder="Your answer here">
                     </div>
-
+                    @error('nik')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -113,6 +136,9 @@
                             Perempuan
                         </label>
                     </div>
+                    @error('jk')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -123,6 +149,9 @@
                     <div class="input-container">
                         <input type="text" name="tmptlahir" id="tmptlahir" placeholder="Your answer here">
                     </div>
+                    @error('tmptlahir')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -133,6 +162,9 @@
                     <div class="input-container">
                         <input type="date" name="tgllahir" id="tgllahir">
                     </div>
+                    @error('tgllahir')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -179,6 +211,9 @@
                             Lain - Lain
                         </label>
                     </div>
+                    @error('agama')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -192,6 +227,9 @@
                     <div class="input-container">
                         <input type="text" name="domisili" id="domisili" placeholder="Your answer here">
                     </div>
+                    @error('domisili')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -203,6 +241,9 @@
                     <div class="input-container">
                         <input type="text" name="rtrw" id="rtrw" placeholder="Your answer here">
                     </div>
+                    @error('rtrw')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -213,6 +254,9 @@
                     <div class="input-container">
                         <input type="text" name="kelurahan" id="kelurahan" placeholder="Your answer here">
                     </div>
+                    @error('kelurahan')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -223,6 +267,9 @@
                     <div class="input-container">
                         <input type="text" name="kecamatan" id="kecamatan" placeholder="Your answer here">
                     </div>
+                    @error('kecamatan')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -235,6 +282,9 @@
                     <div class="input-container">
                         <input type="text" name="kota" id="kota" placeholder="Your answer here">
                     </div>
+                    @error('kota')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -248,6 +298,9 @@
                     <div class="input-container">
                         <input type="text" name="anakbrp" id="anakbrp" placeholder="Your answer here">
                     </div>
+                    @error('anakbrp')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -269,6 +322,9 @@
                             Sewa
                         </label>
                     </div>
+                    @error('statusrumah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -279,6 +335,9 @@
                     <div class="input-container">
                         <input type="text" name="nohp" id="nohp" placeholder="Your answer here">
                     </div>
+                    @error('nohp')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -289,6 +348,9 @@
                     <div class="input-container">
                         <input type="text" name="accsosmed" id="accsosmed" placeholder="Your answer here">
                     </div>
+                    @error('accsosmed')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -299,6 +361,9 @@
                     <div class="input-container">
                         <input type="text" name="tb" id="tb" placeholder="Your answer here">
                     </div>
+                    @error('tb')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -310,6 +375,9 @@
                     <div class="input-container">
                         <input type="text" name="bb" id="bb" placeholder="Your answer here">
                     </div>
+                    @error('bb')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -322,6 +390,9 @@
                     <div class="input-container">
                         <input type="text" name="asalsklh" id="asalsklh" placeholder="Your answer here">
                     </div>
+                    @error('asalsklh')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -332,6 +403,9 @@
                     <div class="input-container">
                         <input type="text" name="kotaasalsklh" id="kotaasalsklh" placeholder="Your answer here">
                     </div>
+                    @error('kotaasalsklh')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -344,6 +418,9 @@
                     <div class="input-container">
                         <input type="text" name="nisn" id="nisn" placeholder="Your answer here">
                     </div>
+                    @error('nisn')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -355,6 +432,9 @@
                     <div class="input-container">
                         <input type="text" name="tgllulus" id="tgllulus" placeholder="Your answer here">
                     </div>
+                    @error('tgllulus')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -365,6 +445,9 @@
                     <div class="input-container">
                         <input type="text" name="eskul" id="eskul" placeholder="Your answer here">
                     </div>
+                    @error('eskul')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -377,6 +460,9 @@
                     <div class="input-container">
                         <input type="text" name="namaayah" id="namaayah" placeholder="Your answer here">
                     </div>
+                    @error('namaayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -387,6 +473,9 @@
                     <div class="input-container">
                         <input type="text" name="nikayah" id="nikayah" placeholder="Your answer here">
                     </div>
+                    @error('nikayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -397,6 +486,9 @@
                     <div class="input-container">
                         <input type="text" name="nokk" id="nokk" placeholder="Your answer here">
                     </div>
+                    @error('nokk')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -407,6 +499,9 @@
                     <div class="input-container">
                         <input type="text" name="tmptlahirayah" id="tmptlahirayah" placeholder="Your answer here">
                     </div>
+                    @error('tmptlahirayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -417,6 +512,9 @@
                     <div class="input-container">
                         <input type="date" name="tgllahirayah" id="tgllahirayah">
                     </div>
+                    @error('tgllahirayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -428,6 +526,9 @@
                     <div class="input-container">
                         <input type="text" name="pendidikanayah" id="pendidikanayah" placeholder="Your answer here">
                     </div>
+                    @error('pendidikanayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -438,6 +539,9 @@
                     <div class="input-container">
                         <input type="text" name="pekerjaanayah" id="pekerjaanayah" placeholder="Your answer here">
                     </div>
+                    @error('pekerjaanayah')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -450,6 +554,9 @@
                     <div class="input-container">
                         <input type="text" name="namaibu" id="namaibu" placeholder="Your answer here">
                     </div>
+                    @error('namaibu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -460,6 +567,9 @@
                     <div class="input-container">
                         <input type="text" name="nikibu" id="nikibu" placeholder="Your answer here">
                     </div>
+                    @error('nikibu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -470,6 +580,9 @@
                     <div class="input-container">
                         <input type="text" name="tmptlahiribu" id="tmptlahiribu" placeholder="Your answer here">
                     </div>
+                    @error('tmptlahiribu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -480,6 +593,9 @@
                     <div class="input-container">
                         <input type="date" name="tgllahiribu" id="tgllahiribu">
                     </div>
+                    @error('tgllahiribu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -490,6 +606,9 @@
                     <div class="input-container">
                         <input type="text" name="pendidikanibu" id="pendidikanibu" placeholder="Your answer here">
                     </div>
+                    @error('pendidikanibu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -500,6 +619,9 @@
                     <div class="input-container">
                         <input type="text" name="pekerjaanibu" id="pekerjaanibu" placeholder="Your answer here">
                     </div>
+                    @error('pekerjaanibu')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -510,6 +632,9 @@
                     <div class="input-container">
                         <input type="text" name="mapeldisukai" id="mapeldisukai" placeholder="Your answer here">
                     </div>
+                    @error('mapeldisukai')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -522,6 +647,9 @@
                     <div class="input-container">
                         <input type="text" name="tinggalkls" id="tinggalkls" placeholder="Your answer here">
                     </div>
+                    @error('tinggalkls')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -534,6 +662,9 @@
                     <div class="input-container">
                         <input type="text" name="prestasi" id="prestasi" placeholder="Your answer here">
                     </div>
+                    @error('prestasi')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -573,8 +704,10 @@
                             <span class="radio-custom"></span>
                             Rusun
                         </label>
-
                     </div>
+                    @error('gambarlingkungan')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -587,6 +720,9 @@
                         <option value="Ya">Ya</option>
                         <option value="Tidak">Tidak</option>
                     </select>
+                    @error('kjp')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -599,6 +735,9 @@
                         <option value="Ya">Ya</option>
                         <option value="Tidak">Tidak</option>
                     </select>
+                    @error('pip')
+                    <small style="color: red">{{ $message }}</small>
+                    @enderror
                 </div>
             </div>
         </div>
@@ -629,17 +768,16 @@
         background-color: #f5f5f5;
     }
 
-    h1 {
-        color: black;
-        font-size: 30px;
-    }
-
-    .customcon {
+    .customform {
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: auto;
-        padding-top: 3vh;
+        justify-content: center;
+    }
+
+    h1 {
+        color: black;
+        font-size: 30px;
     }
 
     button[type="submit"] {

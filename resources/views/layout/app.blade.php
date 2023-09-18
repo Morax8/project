@@ -326,6 +326,27 @@
                             </ul>
                         </li>
 
+
+                        @if(auth()->check() && auth()->user()->hasRole('manajemen'))
+                        <li class="nav-item has-treeview {{ Request::is('datappdb') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    PPDB
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/datappdb" class="nav-link {{ Request::is('datappdb') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @endif
+
                         <!-- Log Out -->
                         <li class="nav-item">
                             <a href="/logout" class="nav-link">
@@ -335,6 +356,7 @@
                                 </p>
                             </a>
                         </li>
+
                     </ul>
                 </nav>
 
