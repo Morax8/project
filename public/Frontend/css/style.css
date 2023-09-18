@@ -718,7 +718,7 @@ a:focus {
         background-color: #ff5800;
     }
     .dropdown-menu li a {
-        width: 200px;
+        width: 250px;
         padding: 6px 15px;
         font-size: 14px;
         font-weight: 600;
@@ -1160,7 +1160,7 @@ a:focus {
     border-radius: 35px;
     color: #fff;
     display: inline-block;
-    float: left;
+    /* float: left; */
     height: 35px;
     line-height: 35px;
     margin-right: 10px;

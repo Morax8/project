@@ -4,6 +4,13 @@
     background-attachment: scroll;
     background-position: center center;
 }
+.customcon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    padding-top: 3vh;
+}
 #fancybox-loading,
 .btn-default.focus,
 .btn-default:focus,
@@ -230,7 +237,7 @@ a:hover {
 }
 .form-control:focus {
     -webkit-box-shadow: 0 0 0;
-    -moz-box-shadow: 0 0 0;
+    box-shadow: 0 0 0;
     border: none;
     outline: 0;
 }
@@ -483,7 +490,7 @@ a:hover {
         background-color: #ff5800;
     }
     .dropdown-menu li a {
-        width: 200px;
+        width: 250px;
         padding: 6px 15px;
         font-size: 14px;
         font-weight: 600;
@@ -633,7 +640,7 @@ a:hover {
 .sidebar .widget {
     margin: 0 0 20px;
 }
-. .form-inline {
+.form-inline {
     display: inline;
 }
 @media (max-width: 500px) {
@@ -807,7 +814,7 @@ a:hover {
     border-radius: 35px;
     color: #fff;
     display: inline-block;
-    float: left;
+    /* float: left; */
     height: 35px;
     line-height: 35px;
     margin-right: 10px;
