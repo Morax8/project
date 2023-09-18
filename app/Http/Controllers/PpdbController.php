@@ -15,9 +15,14 @@ class PpdbController extends Controller
     public function index()
     {
         $footer = Footer::firstorFail();
-        return view('home.ppdb', compact('footer'));
+        return view('ppdb.ppdb', compact('footer'));
     }
 
+    public function succes()
+    {
+        $footer = Footer::firstorFail();
+        return view('ppdb.ppdb-succes', compact('footer'));
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -72,14 +77,16 @@ class PpdbController extends Controller
         ]);
 
         ppdb::create($request->all());
+        return redirect('/ppdb-succes')->with('success');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(ppdb $ppdb)
+    public function view(ppdb $ppdb)
     {
-        //
+        $ppdb = ppdb::all();
+        return view('admin.ppdb.index', compact('ppdb'));
     }
 
     /**

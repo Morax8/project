@@ -9,7 +9,7 @@ class ppdb extends Model
 {
     use HasFactory;
 
-    protected $table = 'ppdb';
+    protected $table = 'ppdbs';
     protected $fillable = [
         'jurusan',
         'mengetahuippdb',
