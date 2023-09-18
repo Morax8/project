@@ -3,14 +3,10 @@
 @section('container')
 
 <div class="container customcon">
-    <form action="">
+    <form action="" method="POST">
+        @csrf
         <div class="col-md-7">
             <div class="panel panel-default">
-                {{-- <div class="panel-body">
-                    <h3>Formulir Penerimaan Peserta Didik Baru TP 2023-2024</h3>
-                    <p>With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div> --}}
                 <div class="panel-body">
                     <h1>Formulir Penerimaan Peserta Didik Baru TP 2023-2024</h1>
                     <p>Mohon disiapkan berkas ini demi kelancaran pengisian Formulir PPDB</p>
@@ -30,7 +26,7 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Jurusan yang akan dipilih <span style="color: red">*</span></h3>
-                    <select name="jurusan" id="">
+                    <select name="jurusan" id="jurusan">
                         <option>Pilih</option>
                         <option value="Teknik Informatika Pemrograman">Teknik Informatika Pemrograman</option>
                         <option value="Teknik Mekatronika">Teknik Mekatronika</option>
@@ -49,22 +45,22 @@
                     </h3>
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="web" value="web">
+                            <input type="radio" name="mengetahuippdb" value="web">
                             <span class="radio-custom"></span>
                             Web SMK Strada
                         </label>
                         <label class="radio">
-                            <input type="radio" name="medsos" value="medsos">
+                            <input type="radio" name="mengetahuippdb" value="medsos">
                             <span class="radio-custom"></span>
                             Media Sosial
                         </label>
                         <label class="radio">
-                            <input type="radio" name="brosur" value="brosur">
+                            <input type="radio" name="mengetahuippdb" value="brosur">
                             <span class="radio-custom"></span>
                             Brosur
                         </label>
                         <label class="radio">
-                            <input type="radio" name="teman" value="teman">
+                            <input type="radio" name="mengetahuippdb" value="teman">
                             <span class="radio-custom"></span>
                             Teman / Kerabat
                         </label>
@@ -80,7 +76,7 @@
                         kelas
                         (Cth : Josua Natanael, Kelas : XI TM 2) <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="namateman" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="namateman" id="namateman" placeholder="Your answer here">
                     </div>
 
                 </div>
@@ -93,7 +89,7 @@
                     <h3 style="margin-bottom: 3vh">NIK (Nomor Identitas Kependudukan) <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="nik" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nik" id="nik" placeholder="Your answer here">
                     </div>
 
                 </div>
@@ -107,12 +103,12 @@
                     </h3>
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="laki" value="Laki - Laki">
+                            <input type="radio" name="jk" value="Laki - Laki">
                             <span class="radio-custom"></span>
                             Laki - Laki
                         </label>
                         <label class="radio">
-                            <input type="radio" name="perempuan" value="perempuan">
+                            <input type="radio" name="jk" value="perempuan">
                             <span class="radio-custom"></span>
                             Perempuan
                         </label>
@@ -125,7 +121,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Tempat Lahir <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="tmptlahir" id="tmptlahir" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -135,7 +131,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Tanggal Lahir <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="date" name="tgllahir" id="text-input">
+                        <input type="date" name="tgllahir" id="tgllahir">
                     </div>
                 </div>
             </div>
@@ -148,37 +144,37 @@
                     </h3>
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="option" value="option1">
+                            <input type="radio" name="agama" value="Katolik">
                             <span class="radio-custom"></span>
                             Katolik
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option2">
+                            <input type="radio" name="agama" value="Islam">
                             <span class="radio-custom"></span>
                             Islam
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option3">
+                            <input type="radio" name="agama" value="Kristen Protestan">
                             <span class="radio-custom"></span>
                             Kristen Protestan
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option3">
+                            <input type="radio" name="agama" value="option3">
                             <span class="radio-custom"></span>
                             Buddha
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option3">
+                            <input type="radio" name="agama" value="option3">
                             <span class="radio-custom"></span>
                             Hindu
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option3">
+                            <input type="radio" name="agama" value="option3">
                             <span class="radio-custom"></span>
                             Konghucu
                         </label>
                         <label class="radio">
-                            <input type="radio" name="option" value="option3">
+                            <input type="radio" name="agama" value="option3">
                             <span class="radio-custom"></span>
                             Lain - Lain
                         </label>
@@ -194,7 +190,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="domisili" id="domisili" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -205,7 +201,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">RT/RW <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="rtrw" id="rtrw" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -215,7 +211,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Kelurahan <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="kelurahan" id="kelurahan" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -225,7 +221,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Kecamatan <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="kecamatan" id="kecamatan" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -237,7 +233,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="kota" id="kota" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -250,7 +246,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="anakbrp" id="anakbrp" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -263,12 +259,12 @@
                     </h3>
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="laki" value="Laki - Laki">
+                            <input type="radio" name="statusrumah" value="Milik sendiri">
                             <span class="radio-custom"></span>
                             Milik sendiri
                         </label>
                         <label class="radio">
-                            <input type="radio" name="perempuan" value="perempuan">
+                            <input type="radio" name="statusrumah" value="Sewa">
                             <span class="radio-custom"></span>
                             Sewa
                         </label>
@@ -281,7 +277,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">No HP <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nohp" id="nohp" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -291,7 +287,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Account Media Sosial <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="accsosmed" id="accsosmed" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -301,7 +297,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Tinggi Badan <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="tb" id="tb" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -312,7 +308,7 @@
                     <h3 style="margin-bottom: 3vh">Berat Badan <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="bb" id="bb" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -324,7 +320,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="asalsklh" id="asalsklh" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -334,7 +330,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Kota Asal SMP/MTs <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="kotaasalsklh" id="kotaasalsklh" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -346,7 +342,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nisn" id="nisn" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -357,7 +353,7 @@
                     <h3 style="margin-bottom: 3vh">Tanggal Lulus dan No. Ijasah (Jika belum ada silahkan isi tanda
                         penghubung (-)) <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="tgllulus" id="tgllulus" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -367,7 +363,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Eskul yang diikuti di SMP/MTs <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="eskul" id="eskul" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -379,7 +375,7 @@
                         <span style="color: red">*</span>
                     </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="namaayah" id="namaayah" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -389,7 +385,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">NIK Ayah <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nikayah" id="nikayah" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -399,7 +395,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">No. KK <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nokk" id="nokk" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -409,7 +405,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Tempat Lahir Ayah <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="tmptlahirayah" id="tmptlahirayah" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -419,7 +415,7 @@
                 <div class="panel-body">
                     <h3 style="margin-bottom: 3vh">Tanggal Lahir Ayah <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="date" name="tgllahir" id="text-input">
+                        <input type="date" name="tgllahirayah" id="tgllahirayah">
                     </div>
                 </div>
             </div>
@@ -428,9 +424,9 @@
         <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 style="margin-bottom: 3vh">Tempat Lahir Ayah <span style="color: red">*</span></h3>
+                    <h3 style="margin-bottom: 3vh">Pendidikan Terakhir Ayah <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="pendidikanayah" id="pendidikanayah" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -438,9 +434,9 @@
         <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 style="margin-bottom: 3vh">Tempat Lahir Ayah <span style="color: red">*</span></h3>
+                    <h3 style="margin-bottom: 3vh">Pekerjaan Ayah <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="pekerjaanayah" id="pekerjaanayah" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -448,9 +444,11 @@
         <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 style="margin-bottom: 3vh">Tempat Lahir Ayah <span style="color: red">*</span></h3>
+                    <h3 style="margin-bottom: 3vh">Nama Ibu Kandung (Diisi dengan kapital cth : SUMARSIH)
+                        <span style="color: red">*</span>
+                    </h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="namaibu" id="namaibu" placeholder="Your answer here">
                     </div>
                 </div>
             </div>
@@ -458,17 +456,174 @@
         <div class="col-md-7">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <h3 style="margin-bottom: 3vh">Tempat Lahir Ayah <span style="color: red">*</span></h3>
+                    <h3 style="margin-bottom: 3vh">NIK ibu kandung <span style="color: red">*</span></h3>
                     <div class="input-container">
-                        <input type="text" name="tmptlahir" id="text-input" placeholder="Your answer here">
+                        <input type="text" name="nikibu" id="nikibu" placeholder="Your answer here">
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Tempat lahir ibu <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="text" name="tmptlahiribu" id="tmptlahiribu" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Tanggal Lahir Ibu <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="date" name="tgllahiribu" id="tgllahiribu">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Pendidikan terakhir ibu <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="text" name="pendidikanibu" id="pendidikanibu" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Pekerjaan ibu <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="text" name="pekerjaanibu" id="pekerjaanibu" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Mata Pelajaran yang di sukai <span style="color: red">*</span></h3>
+                    <div class="input-container">
+                        <input type="text" name="mapeldisukai" id="mapeldisukai" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Pernah tinggal kelas di SMP/SD (Jika ya sebutkan kelas berapa)
+                        <span style="color: red">*</span>
+                    </h3>
+                    <div class="input-container">
+                        <input type="text" name="tinggalkls" id="tinggalkls" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Prestasi yang pernah diraih waktu di SMP/SD
+                        <span style="color: red">*</span>
+                    </h3>
+                    <div class="input-container">
+                        <input type="text" name="prestasi" id="prestasi" placeholder="Your answer here">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Gambaran lingkungan tempat tinggal <span style="color: red">*</span>
+                    </h3>
+                    <div class="radio-group">
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Padat dan sempit">
+                            <span class="radio-custom"></span>
+                            Padat dan sempit
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Pemukiman biasa">
+                            <span class="radio-custom"></span>
+                            Pemukiman biasa
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Perumahan">
+                            <span class="radio-custom"></span>
+                            Perumahan
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Ruko">
+                            <span class="radio-custom"></span>
+                            Ruko
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Apartment">
+                            <span class="radio-custom"></span>
+                            Apartment
+                        </label>
+                        <label class="radio">
+                            <input type="radio" name="gambarlingkungan" value="Rusun">
+                            <span class="radio-custom"></span>
+                            Rusun
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Apakah Penerima KJP <span style="color: red">*</span></h3>
+                    <select name="kjp" id="kjp">
+                        <option>Pilih</option>
+                        <option value="Ya">Ya</option>
+                        <option value="Tidak">Tidak</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3 style="margin-bottom: 3vh">Apakah Penerima PIP <span style="color: red">*</span></h3>
+                    <select name="pip" id="pip">
+                        <option>Pilih</option>
+                        <option value="Ya">Ya</option>
+                        <option value="Tidak">Tidak</option>
+                    </select>
                 </div>
             </div>
         </div>
 
+        <div class="col-md-7">
+            <div class="clearfix">
+                <button type="submit" class="btn btn-primary Create">Submit</button>
+                <button type="button" id="clearForm" class="btn btn-danger pull-right">Clear Form</button>
+            </div>
+        </div>
     </form>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Get a reference to the clear button and the form
+        const clearButton = document.getElementById("clearForm");
+        const form = document.querySelector("form");
 
+        // Add a click event listener to the clear button
+        clearButton.addEventListener("click", function () {
+            // Reset the form to its initial state
+            form.reset();
+        });
+    });
+</script>
 <style>
     body {
         background-color: #f5f5f5;
@@ -485,6 +640,10 @@
         align-items: center;
         margin: auto;
         padding-top: 3vh;
+    }
+
+    button[type="submit"] {
+        width: 40%;
     }
 
     p,
