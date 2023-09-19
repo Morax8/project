@@ -72,14 +72,17 @@ class MyExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyl
     }
     public function styles(Worksheet $sheet)
     {
-
-        // Style the header row (all columns) with a yellow background color
+        // Style the header row (all columns) with a yellow background color and font size
         $sheet->getStyle('1')->applyFromArray([
             'fill' => [
                 'fillType' => \PhpOffice\PhpSpreadsheet\Style\Fill::FILL_SOLID,
                 'startColor' => [
                     'rgb' => 'FFFF00', // Yellow color
                 ],
+            ],
+            'font' => [
+                'bold' => true,
+                'size' => 20, // Adjust the font size here
             ],
         ]);
 
@@ -92,6 +95,10 @@ class MyExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyl
                     'color' => ['argb' => '000000'], // Black color
                 ],
             ],
+
+            'font' => [
+                'size' => 16,
+            ],
         ]);
 
         // Style the entire worksheet to justify (center) the data
@@ -102,9 +109,6 @@ class MyExport implements FromCollection, WithHeadings, ShouldAutoSize, WithStyl
             ],
         ]);
 
-        return [
-            // Style the second column (B) to have a background color of yellow
-            1 => ['font' => ['bold' => true]],
-        ];
+        return [];
     }
 }
