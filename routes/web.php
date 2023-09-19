@@ -41,6 +41,7 @@ Route::get('/test', function () {
 });
 //Page UTAMA
 Route::get('/home', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/contact', function () {
     return view('home.contact', [
@@ -55,8 +56,9 @@ Route::get('/ppdb', [PpdbController::class, 'index']);
 Route::get('/ppdb-succes', [PpdbController::class, 'succes']);
 Route::resource('ppdb', PpdbController::class);
 Route::post('/ppdb/store', 'App\Http\Controllers\PpdbController@store')->name('ppdb.store');
+Route::get('/export', 'App\Http\Controllers\PpdbController@export')->name('ppdb.export');
 
-Route::middleware(['auth', 'CheckRole:manajemen'])->group(function () {
+Route::middleware(['auth', 'CheckRole:manajemen,kepsek'])->group(function () {
     Route::get('/datappdb', [PpdbController::class, 'view']);
 });
 //gallery
@@ -209,7 +211,3 @@ Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegia
 Route::get('/eskulcms', [EskulController::class, 'show'])->name('eskul.show');
 Route::get('/eskulcms/edit/', [EskulController::class, 'edit'])->name('eskul.edit');
 Route::put('/eskulcms/update/{type}/{id}', [EskulController::class, 'update'])->name('eskul.update');
-
-// Auth::routes();
-
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

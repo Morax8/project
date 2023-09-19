@@ -327,7 +327,7 @@
                         </li>
 
 
-                        @if(auth()->check() && auth()->user()->hasRole('manajemen'))
+
                         <li class="nav-item has-treeview {{ Request::is('datappdb') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -345,7 +345,7 @@
                                 </li>
                             </ul>
                         </li>
-                        @endif
+
 
                         <!-- Log Out -->
                         <li class="nav-item">

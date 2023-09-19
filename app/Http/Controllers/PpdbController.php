@@ -6,6 +6,8 @@ use App\Models\ppdb;
 use App\Models\Footer;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Exports\MyExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PpdbController extends Controller
 {
@@ -88,28 +90,8 @@ class PpdbController extends Controller
         $ppdb = ppdb::all();
         return view('admin.ppdb.index', compact('ppdb'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ppdb $ppdb)
+    public function export()
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, ppdb $ppdb)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ppdb $ppdb)
-    {
-        //
+        return Excel::download(new MyExport, 'ppdb.xlsx');
     }
 }

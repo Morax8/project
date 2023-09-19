@@ -48,22 +48,22 @@
                     </h3>
                     <div class="radio-group">
                         <label class="radio">
-                            <input type="radio" name="mengetahuippdb" value="web">
+                            <input type="radio" name="mengetahuippdb" value="Web SMK Stradas">
                             <span class="radio-custom"></span>
                             Web SMK Strada
                         </label>
                         <label class="radio">
-                            <input type="radio" name="mengetahuippdb" value="medsos">
+                            <input type="radio" name="mengetahuippdb" value="Media Sosial">
                             <span class="radio-custom"></span>
                             Media Sosial
                         </label>
                         <label class="radio">
-                            <input type="radio" name="mengetahuippdb" value="brosur">
+                            <input type="radio" name="mengetahuippdb" value="Brosur">
                             <span class="radio-custom"></span>
                             Brosur
                         </label>
                         <label class="radio">
-                            <input type="radio" name="mengetahuippdb" value="teman">
+                            <input type="radio" name="mengetahuippdb" value="Teman">
                             <span class="radio-custom"></span>
                             Teman / Kerabat
                         </label>
@@ -131,7 +131,7 @@
                             Laki - Laki
                         </label>
                         <label class="radio">
-                            <input type="radio" name="jk" value="perempuan">
+                            <input type="radio" name="jk" value="Perempuan">
                             <span class="radio-custom"></span>
                             Perempuan
                         </label>

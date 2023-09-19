@@ -21,6 +21,7 @@
                 @endforeach
             </tbody>
         </table>
+        <a href="{{ Route('ppdb.export') }}" class="btn btn-success">Export Data</a>
     </div>
 </div>
 @endsection
