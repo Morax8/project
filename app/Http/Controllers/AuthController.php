@@ -21,10 +21,7 @@ class AuthController extends Controller
         ]);
 
 
-
         $credentials = $request->only('email', 'password');
-
-
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -40,6 +37,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('/home');
+        return redirect('/login');
     }
 }

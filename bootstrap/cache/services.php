@@ -38,6 +38,8 @@
     34 => 'App\\Providers\\EventServiceProvider',
     35 => 'App\\Providers\\RouteServiceProvider',
     36 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    37 => 'Spatie\\Permission\\PermissionServiceProvider',
+    38 => 'App\\Providers\\BladeServiceProvider',
   ),
   'eager' => 
   array (
@@ -64,6 +66,8 @@
     20 => 'App\\Providers\\EventServiceProvider',
     21 => 'App\\Providers\\RouteServiceProvider',
     22 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    23 => 'Spatie\\Permission\\PermissionServiceProvider',
+    24 => 'App\\Providers\\BladeServiceProvider',
   ),
   'deferred' => 
   array (
