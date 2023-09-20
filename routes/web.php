@@ -19,6 +19,7 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\DescriptionController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,9 +59,8 @@ Route::resource('ppdb', PpdbController::class);
 Route::post('/ppdb/store', 'App\Http\Controllers\PpdbController@store')->name('ppdb.store');
 Route::get('/export', 'App\Http\Controllers\PpdbController@export')->name('ppdb.export');
 
-Route::middleware(['auth', 'CheckRole:manajemen,kepsek'])->group(function () {
-    Route::get('/datappdb', [PpdbController::class, 'view']);
-});
+Route::get('/datappdb', [PpdbController::class, 'view']);
+
 //gallery
 Route::get('/gallery', [GalleryController::class, 'show']);
 
@@ -114,6 +114,13 @@ Route::middleware(['guest'])->group(function () {
 Route::get('/logout', [AuthController::class, 'logout']);
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 
+
+
+//role 
+Route::controller(ROleController::class)->group(function () {
+    Route::get('/role/assign/{userId}/{roleName}', [RoleController::class, 'assignRole']);
+    Route::get('/role-show', [RoleController::class, 'show']);
+});
 
 
 //CMS

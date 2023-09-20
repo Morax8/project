@@ -87,6 +87,7 @@ class PpdbController extends Controller
      */
     public function view(ppdb $ppdb)
     {
+        $this->authorize('read ppdb');
         $ppdb = ppdb::all();
         return view('admin.ppdb.index', compact('ppdb'));
     }
