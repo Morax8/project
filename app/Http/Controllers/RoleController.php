@@ -5,28 +5,56 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    public function assignRole(Request $request, $userId, $roleName)
-    {
-        // Find the user by ID
-        $user = User::findOrFail($userId);
-
-        // Find the role by name
-        $role = Role::where('name', $roleName)->firstOrFail();
-
-        // Assign the role to the user
-        $user->assignRole($role);
-
-        // Redirect or respond as needed
-        return redirect()->back()->with('success', 'Role assigned successfully');
-    }
 
     public function show()
     {
         $this->authorize('read role');
-        return view('admin.user.role-list');
+        $roles = Role::all();
+        return view('admin.user.Role.role-list', compact('roles'));
+    }
+
+    public function createRole()
+    {
+        return view('admin.user.Role.create-role');
+    }
+
+    public function storeROle(Request $request)
+    {
+        $this->authorize('create role');
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+        ]);
+
+        Role::create(['name' => $request->name]);
+
+        return redirect('/role-show');
+    }
+
+
+    public function permission()
+    {
+        $this->authorize('read role');
+        $permissions = Permission::all();
+        return view('admin.user.Permission.permission', compact('permissions'));
+    }
+    public function createPermission()
+    {
+        return view('admin.user.Permission.create-permission');
+    }
+    public function storePermission(Request $request)
+    {
+        $this->authorize('create role');
+        $request->validate([
+            'name' => 'required|unique:roles,name',
+        ]);
+
+        Permission::create(['name' => $request->name]);
+
+        return redirect('/permission-show');
     }
 }
