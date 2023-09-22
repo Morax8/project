@@ -347,6 +347,38 @@
                         </li>
                         @endcan
 
+                        @can('create role')
+                        <li
+                            class="nav-item has-treeview {{ Request::is('role-show', 'permission-show') ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-cog"></i>
+                                <p>
+                                    Settings
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/role-show"
+                                        class="nav-link {{ Request::is('role-show') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Roles</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/permission-show"
+                                        class="nav-link {{ Request::is('permission-show') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Permissions</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        @endcan
+
                         <!-- Log Out -->
                         <li class="nav-item">
                             <a href="/logout" class="nav-link">

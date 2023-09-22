@@ -118,8 +118,12 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 //role 
 Route::controller(ROleController::class)->group(function () {
-    Route::get('/role/assign/{userId}/{roleName}', [RoleController::class, 'assignRole']);
-    Route::get('/role-show', [RoleController::class, 'show']);
+    Route::get('/role-show', [RoleController::class, 'show'])->name('role.show');
+    Route::get('/permission-show', [RoleController::class, 'permission']);
+    Route::get('/create-role', [RoleController::class, 'createRole']);
+    Route::get('/create-permission', [RoleController::class, 'createPermission']);
+    Route::post('/create-role', [RoleController::class, 'storeRole'])->name('role.store');
+    Route::post('/create-permission', [RoleController::class, 'storePermission'])->name('permission.store');
 });
 
 
