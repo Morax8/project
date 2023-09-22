@@ -117,13 +117,23 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 
 
 //role 
-Route::controller(ROleController::class)->group(function () {
+Route::controller(RoleController::class)->group(function () {
     Route::get('/role-show', [RoleController::class, 'show'])->name('role.show');
     Route::get('/permission-show', [RoleController::class, 'permission']);
+    //create
     Route::get('/create-role', [RoleController::class, 'createRole']);
     Route::get('/create-permission', [RoleController::class, 'createPermission']);
+    //store
     Route::post('/create-role', [RoleController::class, 'storeRole'])->name('role.store');
     Route::post('/create-permission', [RoleController::class, 'storePermission'])->name('permission.store');
+    //edit and update
+    Route::get('/edit-role/{id}', [RoleController::class, 'editRole'])->name('role-edit');
+    Route::put('/update-role/{id}', [RoleController::class, 'updateRole'])->name('role.update');
+    //give permission
+    Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('givePermission');
+    //destroy
+    Route::delete('/role/{id}', [RoleController::class, 'destroyRole'])->name('role.destroy');
+    Route::delete('/permission/{id}', [RoleController::class, 'destroyPermission'])->name('permission.destroy');
 });
 
 
