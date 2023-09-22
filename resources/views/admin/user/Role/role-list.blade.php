@@ -18,9 +18,9 @@
                 <tr>
                     <td>{{ $role->name }}</td>
                     <td>
-                        <a href="" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('role-edit', ['id' => $role->id] ) }}" class="btn btn-warning">Edit</a>
                         <p></p>
-                        <form action="" method="POST">
+                        <form action="{{ route('role.destroy', $role->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"
