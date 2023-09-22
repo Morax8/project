@@ -35,6 +35,20 @@ class RoleController extends Controller
         return redirect('/role-show');
     }
 
+    public function editRole($id)
+    {
+        $role = Role::findorFail($id);
+        $permissions = Permission::all();
+        return view('admin.user.Role.edit-role', compact('role', 'permissions'));
+    }
+
+    public function destroyRole($id)
+    {
+        $role = Role::findorFail($id);
+        $role->delete();
+        return redirect('/role-show')->with('success', 'Role deleted successfully');
+    }
+
 
     public function permission()
     {
@@ -56,5 +70,22 @@ class RoleController extends Controller
         Permission::create(['name' => $request->name]);
 
         return redirect('/permission-show');
+    }
+
+    public function destroyPermission($id)
+    {
+        $permission = Permission::findorFail($id);
+        $permission->delete();
+
+        return back();
+    }
+
+    public function givePermission(Request $request, Role  $role)
+    {
+        if ($role->hasPermissionTo($request->permission)) {
+            return redirect('/edit-role')->with('error', 'Permission already given');
+        }
+        $role->givePermissionTo($request->permission);
+        return redirect('/role-show')->with('success', 'Permission given successfully');
     }
 }
