@@ -18,9 +18,8 @@
                 <tr>
                     <td>{{ $permission->name }}</td>
                     <td>
-                        <a href="" class="btn btn-warning">Edit</a>
                         <p></p>
-                        <form action="" method="POST">
+                        <form action="{{ route('permission.destroy', $permission->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger"
