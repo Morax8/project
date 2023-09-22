@@ -191,22 +191,22 @@
                             Kristen Protestan
                         </label>
                         <label class="radio">
-                            <input type="radio" name="agama" value="option3">
+                            <input type="radio" name="agama" value="Buddha">
                             <span class="radio-custom"></span>
                             Buddha
                         </label>
                         <label class="radio">
-                            <input type="radio" name="agama" value="option3">
+                            <input type="radio" name="agama" value="Hindu">
                             <span class="radio-custom"></span>
                             Hindu
                         </label>
                         <label class="radio">
-                            <input type="radio" name="agama" value="option3">
+                            <input type="radio" name="agama" value="Konghucu">
                             <span class="radio-custom"></span>
                             Konghucu
                         </label>
                         <label class="radio">
-                            <input type="radio" name="agama" value="option3">
+                            <input type="radio" name="agama" value="Lainnya">
                             <span class="radio-custom"></span>
                             Lain - Lain
                         </label>
