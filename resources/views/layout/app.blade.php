@@ -326,8 +326,7 @@
                             </ul>
                         </li>
 
-
-                        @can('read ppdb')
+                        @if (Gate::allows('read ppdb') || Gate::allows('create role'))
                         <li class="nav-item has-treeview {{ Request::is('datappdb') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -345,7 +344,12 @@
                                 </li>
                             </ul>
                         </li>
-                        @endcan
+                        @endif
+
+                        {{-- NOTES --}}
+
+                        {{-- Use if statement for 2 or more roles that can access the certain part --}}
+                        {{-- Use can statement for only ONE roles --}}
 
                         @can('create role')
                         <li
@@ -376,7 +380,6 @@
                                 </li>
                             </ul>
                         </li>
-
                         @endcan
 
                         <!-- Log Out -->
