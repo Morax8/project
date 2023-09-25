@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\PpdbController;
@@ -44,12 +45,10 @@ Route::get('/test', function () {
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/contact', function () {
-    return view('home.contact', [
-        "title" => "Contact"
-    ]);
-});
-Route::post('/contact', [ContactFormController::class, 'submitForm'])->name('contact.submit');
+
+Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact_succes', [ContactController::class, 'succes']);
+Route::post('/contact/store', 'App\Http\Controllers\ContactController@store')->name('contact.store');
 
 //PPDB
 Route::get('/ppdb', [PpdbController::class, 'index']);

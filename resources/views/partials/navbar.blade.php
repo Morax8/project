@@ -13,10 +13,10 @@
         </div>
         <nav class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown active">
+                <li class="dropdown {{ ($active === 'home') ? 'active' : '' }}">
                     <a href="/home">Home</a>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {{ ($active === 'profile') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Profile<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Tentang Kami</li>
@@ -25,7 +25,7 @@
                         <li><a href="/logo">Logo</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {{ ($active === 'jurusan') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jurusan<b class="caret"></b></a>
                     <ul class="dropdown-menu jurus">
                         <li class="dropdown-header">Program Keahlian </li>
@@ -35,7 +35,7 @@
                         <li><a href="/tsm">Teknik Sepeda Motor</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {{ ($active === 'fasilitas') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fasilitas<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Fasilitas SMK STRADA</li>
@@ -43,7 +43,7 @@
                         <li><a href="/sarpra">Sarana & Prasarana</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
+                <li class="dropdown {{ ($active === 'lainnya') ? 'active' : '' }}">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lainnya<b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li class="dropdown-header">Serba Serbi SMK STRADA</li>
@@ -59,7 +59,9 @@
                         <li><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>
-                <li><a href="/contact">Contact</a></li>
+                <li class="dropdown {{ ($active === 'contact') ? 'active' : '' }}">
+                    <a href="/contact">Contact</a>
+                </li>
             </ul>
         </nav>
         <!-- /.navbar-collapse -->
