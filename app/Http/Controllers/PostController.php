@@ -22,7 +22,7 @@ class PostController extends Controller
         $footer = Footer::firstorFail();
         return view('home.posts', [
             "title" => "All News" . $title,
-            "active" => "News",
+            "active" => "lainnya",
             "posts" => Post::latest()->paginate(7)->withQueryString(),
             "footer" => $footer,
         ]);
@@ -33,7 +33,7 @@ class PostController extends Controller
         $footer = Footer::firstorFail();
         return view('home.post', [
             "title" => "Single News",
-            "active" => "News",
+            "active" => "lainnya",
             "post" => $post,
             "footer" => $footer,
         ]);

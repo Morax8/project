@@ -15,7 +15,8 @@ class GalleryController extends Controller
     {
         $gallery = gallery::latest()->paginate(8);
         $footer = Footer::firstorFail();
-        return view('home.gallery', compact('footer', 'gallery'));
+        $active = 'lainnya';
+        return view('home.gallery', compact('footer', 'gallery', 'active'));
     }
 
     public function cmsIndex($type)

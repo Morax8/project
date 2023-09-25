@@ -16,57 +16,66 @@ class EskulController extends Controller
     {
         $footer = Footer::firstorFail();
         $eskul = eskul::firstorFail();
-        return view('home.eskul', compact('footer', 'eskul'));
+        $active = 'lainnya';
+        return view('home.eskul', compact('footer', 'eskul', 'active'));
     }
 
     public function futsal()
     {
         $eskul = eskul::where('type', 'futsal')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
 
     public function multimedia()
     {
         $eskul = eskul::where('type', 'mm')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function band()
     {
         $eskul = eskul::where('type', 'band')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function paskib()
     {
         $eskul = eskul::where('type', 'paskib')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function pramuka()
     {
         $eskul = eskul::where('type', 'pramuka')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function badminton()
     {
         $eskul = eskul::where('type', 'badmin')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function tenismeja()
     {
         $eskul = eskul::where('type', 'tenismeja')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
     public function padus()
     {
         $eskul = eskul::where('type', 'padus')->get();
         $footer = Footer::firstorFail();
-        return view('home.eskuls', compact('eskul', 'footer'));
+        $active = 'lainnya';
+        return view('home.eskuls', compact('eskul', 'footer', 'active'));
     }
 
 

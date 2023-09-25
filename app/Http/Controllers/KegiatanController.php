@@ -16,7 +16,8 @@ class KegiatanController extends Controller
     {
         $kegiatan = Kegiatan::firstorFail();
         $footer = Footer::firstorFail();
-        return view('home.kegiatan', compact('footer', 'kegiatan'));
+        $active = 'lainnya';
+        return view('home.kegiatan', compact('footer', 'kegiatan', 'active'));
     }
 
     /**

@@ -13,7 +13,8 @@ class ProfileController extends Controller
     {
         $sejprof = Profile::where('type', 'sej')->get();
         $footer = Footer::firstorFail();
-        return view('profile.sejarah', compact('sejprof', 'footer'));
+        $active = 'profile';
+        return view('profile.sejarah', compact('sejprof', 'footer', 'active'));
     }
 
     public function indexSejarah()
@@ -31,7 +32,8 @@ class ProfileController extends Controller
     {
         $vmprof = Profile::where('type', 'vm')->get();
         $footer = Footer::firstorFail();
-        return view('profile.visimisi', compact('vmprof', 'footer'));
+        $active = 'profile';
+        return view('profile.visimisi', compact('vmprof', 'footer', 'active'));
     }
 
     public function indexVisimisi()
@@ -49,7 +51,8 @@ class ProfileController extends Controller
     {
         $logoprof = Profile::where('type', 'logo')->get();
         $footer = Footer::firstorFail();
-        return view('profile.logo', compact('logoprof', 'footer'));
+        $active = 'profile';
+        return view('profile.logo', compact('logoprof', 'footer', 'active'));
     }
 
     public function indexLogo()

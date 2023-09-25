@@ -19,7 +19,8 @@ class JurusanController extends Controller
     {
         $tsmjurusan = jurusan::where('type', 'tsm')->get();
         $footer = Footer::firstorFail();
-        return view('jurusan.tsm', compact('tsmjurusan', 'footer'));
+        $active = 'jurusan';
+        return view('jurusan.tsm', compact('tsmjurusan', 'footer', 'active'));
     }
     public function editTsm($id)
     {
@@ -37,7 +38,8 @@ class JurusanController extends Controller
     {
         $tipjurusan = jurusan::where('type', 'tip')->get();
         $footer = Footer::firstorFail();
-        return view('jurusan.tip', compact('tipjurusan', 'footer'));
+        $active = 'jurusan';
+        return view('jurusan.tip', compact('tipjurusan', 'footer', 'active'));
     }
 
     public function editTip($id)
@@ -57,7 +59,8 @@ class JurusanController extends Controller
     {
         $tpjurusan = jurusan::where('type', 'tp')->get();
         $footer = Footer::firstorFail();
-        return view('jurusan.tp', compact('tpjurusan', 'footer'));
+        $active = 'jurusan';
+        return view('jurusan.tp', compact('tpjurusan', 'footer', 'active'));
     }
 
     public function editTp($id)

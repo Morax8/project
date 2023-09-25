@@ -21,7 +21,8 @@ class FasilitasController extends Controller
     {
         $fasilitas = Fasilitas::where('type', 'fas')->get();
         $footer = Footer::firstorFail();
-        return view('fasilitas.fasilitas', compact('fasilitas', 'footer'));
+        $active = 'fasilitas';
+        return view('fasilitas.fasilitas', compact('fasilitas', 'footer', 'active'));
     }
 
     public function fasEdit($id)
@@ -34,7 +35,8 @@ class FasilitasController extends Controller
     {
         $sarpra = Fasilitas::where('type', 'sarpra')->get();
         $footer = Footer::firstorFail();
-        return view('fasilitas.sarpra', compact('sarpra', 'footer'));
+        $active = 'fasilitas';
+        return view('fasilitas.sarpra', compact('sarpra', 'footer', 'active'));
     }
 
     public function sarpracms()

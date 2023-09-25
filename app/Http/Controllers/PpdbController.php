@@ -17,13 +17,15 @@ class PpdbController extends Controller
     public function index()
     {
         $footer = Footer::firstorFail();
-        return view('ppdb.ppdb', compact('footer'));
+        $active = 'lainnya';
+        return view('ppdb.ppdb', compact('footer', 'active'));
     }
 
     public function succes()
     {
         $footer = Footer::firstorFail();
-        return view('ppdb.ppdb-succes', compact('footer'));
+        $active = 'lainnya';
+        return view('ppdb.ppdb-succes', compact('footer', 'active'));
     }
 
     /**

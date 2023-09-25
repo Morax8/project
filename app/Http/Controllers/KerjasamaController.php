@@ -25,7 +25,8 @@ class KerjasamaController extends Controller
     {
         $ks = kerjasama::all();
         $footer = Footer::firstorFail();
-        return view('home.kerjasama', compact('ks', 'footer'));
+        $active = 'lainnya';
+        return view('home.kerjasama', compact('ks', 'footer', 'active'));
     }
 
     public function update(Request $request, $id)

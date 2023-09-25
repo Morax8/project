@@ -27,7 +27,7 @@ class HomeController extends Controller
             "gallery" => $gallery,
             "footer" => $footer,
             "desc" => $desc,
-
+            "active" => "home",
         ]);
     }
 
