@@ -118,7 +118,7 @@ Route::get('/register', [AuthController::class, 'register'])->name('register');
 //role 
 Route::controller(RoleController::class)->group(function () {
     Route::get('/role-show', [RoleController::class, 'show'])->name('role.show');
-    Route::get('/permission-show', [RoleController::class, 'permission']);
+    Route::get('/permission-show', [RoleController::class, 'permission'])->name('permission.show');
     //create
     Route::get('/create-role', [RoleController::class, 'createRole']);
     Route::get('/create-permission', [RoleController::class, 'createPermission']);
@@ -128,8 +128,12 @@ Route::controller(RoleController::class)->group(function () {
     //edit and update
     Route::get('/edit-role/{id}', [RoleController::class, 'editRole'])->name('role-edit');
     Route::put('/update-role/{id}', [RoleController::class, 'updateRole'])->name('role.update');
+    Route::get('/edit-permission/{id}', [RoleController::class, 'editPermission'])->name('permission-edit');
+    Route::put('/update-permission/{id}', [RoleController::class, 'updatePermission'])->name('permission.update');
     //give permission
     Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('givePermission');
+    //revoke
+    Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('revokePermission');
     //destroy
     Route::delete('/role/{id}', [RoleController::class, 'destroyRole'])->name('role.destroy');
     Route::delete('/permission/{id}', [RoleController::class, 'destroyPermission'])->name('permission.destroy');

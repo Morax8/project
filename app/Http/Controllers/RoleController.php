@@ -22,8 +22,20 @@ class RoleController extends Controller
     {
         return view('admin.user.Role.create-role');
     }
+    public function updateRole(Request $request, Role $role)
+    {
+        $this->authorize('update role');
 
-    public function storeROle(Request $request)
+        $request->validate([
+            'name' => 'required|unique:roles,name,',
+        ]);
+
+        $role->update(['name' => $request->name]);
+
+        return redirect('/role-show');
+    }
+
+    public function storeRole(Request $request)
     {
         $this->authorize('create role');
         $request->validate([
@@ -71,7 +83,26 @@ class RoleController extends Controller
 
         return redirect('/permission-show');
     }
+    public function updatePermission(Request $request, Permission $permission)
+    {
+        $this->authorize('update role');
 
+        $request->validate([
+            'name' => 'required|unique:permissions,name,' . $permission->id,
+        ]);
+
+        $permission->update(['name' => $request->name]);
+
+        return redirect('/permission-show');
+    }
+
+
+    public function editPermission($id)
+    {
+        $permission = Permission::findorFail($id);
+        $roles = Role::all();
+        return view('admin.user.Permission.edit-permission', compact('permission', 'roles'));
+    }
     public function destroyPermission($id)
     {
         $permission = Permission::findorFail($id);
@@ -79,6 +110,15 @@ class RoleController extends Controller
 
         return back();
     }
+
+    public function revokePermission(Role $role, Permission $permission)
+    {
+        // Revoke the permission from the role
+        $role->revokePermissionTo($permission);
+
+        return redirect()->back()->with('success', 'Permission revoked successfully');
+    }
+
 
     public function givePermission(Request $request, Role  $role)
     {

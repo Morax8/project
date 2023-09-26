@@ -17,7 +17,8 @@
                 @foreach($permissions as $permission)
                 <tr>
                     <td>{{ $permission->name }}</td>
-                    <td>
+                    <td> <a href="{{ route('permission-edit', ['id' => $permission->id] ) }}"
+                            class="btn btn-warning">Edit</a>
                         <p></p>
                         <form action="{{ route('permission.destroy', $permission->id) }}" method="POST">
                             @csrf
