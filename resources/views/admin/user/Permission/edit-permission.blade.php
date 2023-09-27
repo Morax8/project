@@ -26,7 +26,7 @@
         <div class="col-md-6">
             <h2>Roles</h2>
             <div>
-                @if ($permission->roles->isNotEmpty())
+                @if ($permission->roles)
                 <p>Roles that have <strong>{{ $permission->name }}</strong> permissions :</p>
                 <ul>
                     @foreach ($permission->roles as $permission_role)
@@ -39,7 +39,6 @@
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Revoke Permission</button>
                         </form>
-
                     </li>
                     @endforeach
                 </ul>
@@ -47,7 +46,21 @@
                 <p>This permission is not assigned to any roles.</p>
                 @endif
             </div>
-
+            <div>
+                <form action="{{ route('assignPermission', ['permission' => $permission->id]) }}" method="post">
+                    @csrf
+                    <div class="form-group">
+                        <select name="role" id="role">
+                            @foreach ($roles as $role)
+                            <option value="{{ $role->name }}">{{ $role->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <button type="submit" class="btn btn-primary btn-block Create">Assign</button>
+                    </div>
+                </form>
+            </div>
 
         </div>
     </div>

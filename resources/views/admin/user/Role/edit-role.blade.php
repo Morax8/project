@@ -30,31 +30,12 @@
                 <p>Permissions for <strong>{{ $role->name }}</strong>:</p>
                 <ul>
                     @foreach ($role->permissions as $role_permission)
-                    <li>{{ $role_permission->name }}</li>
+                    <li>{{ $role_permission->name }} </li>
                     @endforeach
                 </ul>
                 @else
                 <p>This role currently has no permissions.</p>
                 @endif
-
-            </div>
-            <div>
-                <form action="{{ route('givePermission', ['id' => $role->id, 'role' => $role->id]) }}" method="post">
-                    @csrf
-                    @error('nama')
-                    <small style="color: red">{{ $message }}</small>
-                    @enderror
-                    <div class="form-group">
-                        <select name="permission" id="permission">
-                            @foreach ($permissions as $permission)
-                            <option value="{{ $permission->name }}">{{ $permission->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <button type="submit" class="btn btn-primary btn-block Create">Assign</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

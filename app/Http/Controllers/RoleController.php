@@ -62,6 +62,8 @@ class RoleController extends Controller
     }
 
 
+
+
     public function permission()
     {
         $this->authorize('read role');
@@ -115,17 +117,16 @@ class RoleController extends Controller
     {
         // Revoke the permission from the role
         $role->revokePermissionTo($permission);
-
         return redirect()->back()->with('success', 'Permission revoked successfully');
     }
 
-
-    public function givePermission(Request $request, Role  $role)
+    function assignPermission(Request $request, Permission $permission)
     {
-        if ($role->hasPermissionTo($request->permission)) {
-            return redirect('/edit-role')->with('error', 'Permission already given');
+        if ($permission->hasRole($request->role)) {
+            return redirect()->back()->with('error', 'Role already given');
         }
-        $role->givePermissionTo($request->permission);
-        return redirect('/role-show')->with('success', 'Permission given successfully');
+
+        $permission->assignRole($request->role);
+        return redirect()->back()->with('Success', 'Role given');
     }
 }

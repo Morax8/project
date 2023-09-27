@@ -131,7 +131,7 @@ Route::controller(RoleController::class)->group(function () {
     Route::get('/edit-permission/{id}', [RoleController::class, 'editPermission'])->name('permission-edit');
     Route::put('/update-permission/{id}', [RoleController::class, 'updatePermission'])->name('permission.update');
     //give permission
-    Route::post('/roles/{role}/permissions', [RoleController::class, 'givePermission'])->name('givePermission');
+    Route::post('permissions/{permission}/roles', [RoleController::class, 'assignPermission'])->name('assignPermission');
     //revoke
     Route::delete('/roles/{role}/permissions/{permission}', [RoleController::class, 'revokePermission'])->name('revokePermission');
     //destroy
