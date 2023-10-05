@@ -160,3 +160,8 @@ Route::put('/footer/update', [FooterController::class, 'update'])->name('footer.
 Route::get('/desc', [DescriptionController::class, 'descIndex'])->name('desc.index');
 Route::get('/desc/edit/', [DescriptionController::class, 'edit'])->name('desc.edit');
 Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc.update');
+
+//kegiatanCMS
+Route::get('/kegcms', [kegiatanController::class, 'show'])->name('kegiatan.show');
+Route::get('/kegcms/edit/', [kegiatanController::class, 'edit'])->name('kegiatan.edit');
+Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegiatan.update');

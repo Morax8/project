@@ -55,7 +55,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="/dashboard" class="d-block">{{ Auth::user()->name }}</a>
+                        @if(Auth::check() && Auth::user()->nama)
+                        <a href="/dashboard" class="d-block">{{ Auth::user()->nama }}</a>
+                        @else
+                        <a href="/login" class="d-block">Login</a>
+                        @endif
                     </div>
                 </div>
 
