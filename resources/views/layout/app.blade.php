@@ -52,7 +52,7 @@
             <a href="/dashboard" class="brand-link">
                 <img src="{{ asset('LTE/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
                     class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">Admin Side</span>
             </a>
 
             <!-- Sidebar -->
@@ -82,7 +82,7 @@
 
                         <!-- Homepage Dropdown -->
                         <li
-                            class="nav-item has-treeview {{ Request::is('sliders*', 'postscms*', 'kscms*', 'desc*', 'kegcms') ? 'menu-open' : '' }}">
+                            class="nav-item has-treeview {{ Request::is('sliders*', 'postscms*', 'kscms*', 'desc*', 'kegcms*', 'contactus*') ? 'menu-open' : '' }}">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
@@ -119,6 +119,13 @@
                                     <a href="/kegcms" class="nav-link  {{ Request::is('kegcms') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Kegiatan</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="/contactcms"
+                                        class="nav-link  {{ Request::is('contactcms') ? 'active' : '' }}">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Contact US</p>
                                     </a>
                                 </li>
                             </ul>
@@ -236,9 +243,8 @@
                         </li>
 
                         <li
-                            class="nav-item has-treeview {{ (Request::is('fascms', 'sarcms', 'pracms', 'labcms', 'perpuscms') || Request::is('fas/edit/*', 'sar/edit/*', 'pra/edit/*', 'per/edit/*', 'lab/edit/*')) ? 'menu-open' : '' }}">
-                            <a href="#"
-                                class="nav-link {{ Route::is('fas.edit', 'sarana.edit', 'pras.edit', 'perpus.edit', 'lab.edit') ? 'active' : '' }}">
+                            class="nav-item has-treeview {{ (Request::is('fascms', 'sarpracms') || Request::is('fas/edit/*', 'sarpra/edit/*')) ? 'menu-open' : '' }}">
+                            <a href="#" class="nav-link {{ Route::is('fas.edit', 'sarpra.edit') ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-warehouse"></i>
                                 <p>
                                     Fasilitas
@@ -253,28 +259,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="/sarcms" class="nav-link {{ Request::is('sarcms') ? 'active' : '' }}">
+                                    <a href="/sarpracms" class="nav-link {{ Request::is('sarcms') ? 'active' : '' }}">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Sarana</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/prascms" class="nav-link {{ Request::is('prascms') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Prasarana</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/labcms" class="nav-link {{ Request::is('labcms') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Laboratorium</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/perpuscms"
-                                        class="nav-link {{ Request::is('perpuscms') ? 'active' : '' }}">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Perpustakaan</p>
+                                        <p>Sarana Prasarana</p>
                                     </a>
                                 </li>
                             </ul>

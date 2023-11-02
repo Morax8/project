@@ -14,7 +14,6 @@ use App\Http\Controllers\FooterController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\KerjasamaController;
@@ -63,8 +62,7 @@ Route::get('/datappdb', [PpdbController::class, 'view']);
 //gallery
 Route::get('/gallery', [GalleryController::class, 'show']);
 
-//kegiatan
-Route::get('/keg', [KegiatanController::class, 'Index']);
+
 //eskul
 Route::get('/eskul', [eskulController::class, 'Index']);
 Route::get('/futsal', [eskulController::class, 'futsal']);
@@ -194,16 +192,10 @@ Route::delete('/gallery/{type}/{id}', 'App\Http\Controllers\GalleryController@de
 //Fasilitas CMS
 //index for each type
 Route::get('/fascms', [FasilitasController::class, 'fascms'])->name('fasilitas.index');
-Route::get('/sarcms', [FasilitasController::class, 'sarcms'])->name('sarana.index');
-Route::get('/prascms', [FasilitasController::class, 'prascms'])->name('prasarana.index');
-Route::get('/perpuscms', [FasilitasController::class, 'perpuscms'])->name('perpus.index');
-Route::get('/labcms', [FasilitasController::class, 'labcms'])->name('lab.index');
+Route::get('/sarpracms', [FasilitasController::class, 'sarpracms'])->name('sarpra.index');
 //edit for each type
 Route::get('/fas/edit/{id}', [FasilitasController::class, 'fasEdit'])->name('fas.edit');
-Route::get('/sar/edit/{id}', [FasilitasController::class, 'sarEdit'])->name('sarana.edit');
-Route::get('/pra/edit/{id}', [FasilitasController::class, 'praEdit'])->name('pras.edit');
-Route::get('/per/edit/{id}', [FasilitasController::class, 'perEdit'])->name('perpus.edit');
-Route::get('/lab/edit/{id}', [FasilitasController::class, 'labEdit'])->name('lab.edit');
+Route::get('/sarpra/edit/{id}', [FasilitasController::class, 'sarpraEdit'])->name('sarpra.edit');
 //update
 Route::match(['PUT', 'PATCH'], '/fasilitas/{type}/update/{id}', 'App\Http\Controllers\FasilitasController@update')->name('fasilitas.update');
 
@@ -224,12 +216,6 @@ Route::put('/footer/update', [FooterController::class, 'update'])->name('footer.
 Route::get('/desc', [DescriptionController::class, 'descIndex'])->name('desc.index');
 Route::get('/desc/edit/', [DescriptionController::class, 'edit'])->name('desc.edit');
 Route::put('/desc/update', [DescriptionController::class, 'update'])->name('desc.update');
-
-//kegiatanCMS
-Route::get('/kegcms', [kegiatanController::class, 'show'])->name('kegiatan.show');
-Route::get('/kegcms/edit/', [kegiatanController::class, 'edit'])->name('kegiatan.edit');
-Route::put('/kegcms/update', [kegiatanController::class, 'update'])->name('kegiatan.update');
-
 
 //eskul cms
 Route::get('/eskulcms', [EskulController::class, 'show'])->name('eskul.show');

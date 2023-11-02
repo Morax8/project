@@ -2,22 +2,28 @@
 @section('title', 'Sarana & Prasarana')
 @section('container')
 <div class="container">
-    <ul>
+    <ol>
         @foreach ($sarpra as $item)
-        <li>
-            <strong>{{ $item->title }}<br></strong>
-            <img src="{{ asset('images/'.$item->image) }}" alt="" style="width: 500px"><br>
-            {!! $item->content !!}
-        </li>
+        <h1>
+            <li class="judulli">
+                <strong>{{ $item->title }}<br></strong>
+            </li>
+        </h1>
+        <img src="{{ asset('images/'.$item->image) }}" alt="" style="width: 500px"><br>
+        {!! $item->content !!}
 
         @endforeach
-    </ul>
+    </ol>
 </div>
 
 <style>
     p,
     li {
         font-size: 15px;
+    }
+
+    li.judulli {
+        font-size: 20px;
     }
 
     strong {

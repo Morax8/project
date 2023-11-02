@@ -41,7 +41,7 @@ class FasilitasController extends Controller
 
     public function sarpracms()
     {
-        $sarpra = Fasilitas::where('type', 'sar')->get();
+        $sarpra = Fasilitas::where('type', 'sarpra')->get();
         return view('admin.fasilitas.sarpra.sarpraIndex', compact('sarpra'));
     }
 

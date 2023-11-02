@@ -55,7 +55,6 @@
                         <li><a href="/ppdb">PPDB</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Dokumentasi</li>
-                        <li><a href="/keg">Kegiatan</a></li>
                         <li><a href="/gallery">Gallery</a></li>
                     </ul>
                 </li>
